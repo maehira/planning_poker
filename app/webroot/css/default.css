@@ -1,0 +1,78 @@
+#sortable tr:hover { cursor: move; }
+
+/* ÉeÅ[ÉuÉã
+--------------------------- */
+.priorityNumber {
+  width: 120px;
+}
+.backLog {
+  width: 420px;
+}
+.estimate {
+  width: 120px;
+}
+
+
+.clear {
+  clear: both;
+}
+
+/* .dragparts / .dragparts_drop
+--------------------------- */
+.dragparts,
+.dragparts_drop {
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 100px;
+    position: absolute;
+}
+.dragparts_after {
+    width: 80px;
+    height: 100px;
+}
+
+/* #dragitemlist
+--------------------------- */
+#dragitemlist {
+    position: relative;
+    height: 100px;
+}
+ 
+#dragitemlist ul.draglist {
+    margin-left: 5px;
+}
+ 
+#dragitemlist ul.draglist li {
+    margin: 0 5px 5px 0;
+    width: 80px;
+    display: inline;
+    float: left;
+    position: relative;
+}
+
+/* #droparea
+--------------------------- */
+.droparea {
+    height: 100px;
+    width: 80px;
+    background: #ddd;
+}
+ 
+.droparea.areahover {
+    background: #666;
+}
+ 
+.droparea .dragparts_drop {
+    margin: 0;
+    padding: 0 5px 5px 0;
+    position: relative;
+}
+
+box {
+  width: 200px;
+  height: 200px;
+  background-color: blue;
+}
+
+
