@@ -46,6 +46,11 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 <body>
 	<div id="container">
 		<div id="header">
+                    <?php
+                      if(isset($uid)) {
+                       echo("LoginUser : [ $uid ]");   
+                      }
+                    ?>
 		</div>
 		<div id="content">
 			<?php echo $this->Session->flash(); ?>
@@ -54,6 +59,6 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		<div id="footer">
 		</div>
 	</div>
-	<?php echo $this->element('sql_dump'); ?>
+	<?php //echo $this->element('sql_dump'); ?>
 </body>
 </html>

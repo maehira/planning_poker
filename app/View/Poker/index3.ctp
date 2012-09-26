@@ -1,7 +1,3 @@
-<div class="row">
-    
-<div class="span8">
-
 <div id="dragitemlist">
   <ul class="draglist">
     <li>
@@ -39,16 +35,14 @@
 
 <br class="clear" />
 
-<form action="index3" method="post">
-<button id="submit" class="btn btn-large" style="width: 150px;">ポーカーの開始</button>
-
-<div style="margin-top: 10px;">
-    <table class="table table-striped table-bordered" style="width: 660px;">
+<div>
+    <table class="table table-striped table-bordered" style="width: 1200px;">
         <thead>
             <tr>
                 <th class="priorityNumber">優先順位</th>
                 <th class="backLog">プロダクトバックログ</th>
                 <th class="estimate">見積り</th>
+                <th class="pokerspace" colspan="2">ポーカースペース</th>
             </tr>
         </thead>
         <tbody id="sortable">
@@ -58,13 +52,17 @@
                 <td class="estimate">
                   <div class="droparea"></div>
                 </td>
+                <td class="pokerspace-body"></td>
+                <td></td>
             </tr>
             <tr>
                 <td class="priorityNumber rank">2</td>
                 <th class="backLog">yyyyyができる</th>
                 <td class="estimate">
-                  <div class="droparea"></div>
+                  <img src="../img/poker/2.png" alt="2" />
                 </td>
+                <td class="pokerspace-body"></td>
+                <td></td>
             </tr>
             <tr>
                 <td class="priorityNumber rank">3</td>
@@ -72,6 +70,8 @@
                 <td class="estimate">
                   <div class="droparea"></div>
                 </td>
+                <td class="pokerspace-body"></td>
+                <td></td>
             </tr>
             <tr>
                 <td class="priorityNumber rank">4</td>
@@ -81,22 +81,17 @@
                 cccccc<br />
                 </th>
                 <td class="estimate">
-                  <div class="droparea"></div>
+                  <img src="../img/poker/5.png" alt="5" />
                 </td>
+                <td class="pokerspace-body">
+                  <div class="poker-droparea"></div>
+                </td>
+                <td></td>
             </tr>
         </tbody>
     </table>
 </div>
-</form>
 
-</div>
-
-<div class="span4 chat-container">
-    <div class="chat-messages">チャット</div>
-    <div class="chat-input"></div>
-</div>
-
-</div>
 
 
 <script type="text/javascript">
@@ -183,6 +178,33 @@ $(function(){
         //        });
         //    }
         //});
+        
+        // ポーカースペースにドロップされた時の処理
+        $('.poker-droparea').droppable({
+            accept: '.dragparts',
+            tolerance: 'intersect',
+            hoverClass: "areahover",
+            activate: function(ev, ui){
+                var pos = ui.position;
+            },
+            drop: function(ev, ui){
+                $(this).empty();
+                $(this).append(ui.helper.clone().removeClass().addClass('dragparts_after'));
+                dragPartsAfter();
+                
+                var data = {request : "13"};
+                $.ajax({
+                  type: "POST",
+                  url: "alert",
+                  data: data,
+                  success: function(data, dataType) {
+                      alert(data);
+                  },
+                  error: function(XMLHttpRequest, textStatus, errorThrown) {
+                }
+            });
+            }
+        });
  
         var connectCont = $('ul.draglist li').index(this);
         var numCont = connectCont+1;

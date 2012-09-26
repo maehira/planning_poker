@@ -1,15 +1,33 @@
+#container {
+    margin: 5px;
+}
+
+#content {
+    margin-top: 10px;
+}
+
 #sortable tr:hover { cursor: move; }
 
-/* ÉeÅ[ÉuÉã
+/* 
 --------------------------- */
 .priorityNumber {
-  width: 120px;
+  width: 80px;
 }
 .backLog {
-  width: 420px;
+  width: 480px;
 }
 .estimate {
-  width: 120px;
+  width: 50px;
+}
+.estimate img {
+  width: 40px;
+  height: 50px;
+}
+.pokerspace {
+  width: 540px;
+}
+.pokerspace-body {
+  width: 450px;
 }
 
 
@@ -23,20 +41,25 @@
 .dragparts_drop {
     top: 0;
     left: 0;
-    width: 80px;
-    height: 100px;
+    width: 40px;
+    height: 50px;
     position: absolute;
 }
-.dragparts_after {
-    width: 80px;
-    height: 100px;
+.dragparts img {
+    width: 40px;
+    height: 50px;
 }
+.dragparts_after img {
+    width: 40px;
+    height: 50px;
+}
+
 
 /* #dragitemlist
 --------------------------- */
 #dragitemlist {
     position: relative;
-    height: 100px;
+    height: 50px;
 }
  
 #dragitemlist ul.draglist {
@@ -45,25 +68,29 @@
  
 #dragitemlist ul.draglist li {
     margin: 0 5px 5px 0;
-    width: 80px;
+    width: 40px;
     display: inline;
     float: left;
     position: relative;
 }
 
+#dragitemlist img:hover {
+    cursor: move;}
+
 /* #droparea
 --------------------------- */
-.droparea {
-    height: 100px;
-    width: 80px;
+.droparea,
+.poker-droparea {
+    height: 50px;
+    width: 40px;
     background: #ddd;
 }
  
-.droparea.areahover {
+.droparea.areahover, .poker-droparea.areahover {
     background: #666;
 }
  
-.droparea .dragparts_drop {
+.droparea .dragparts_drop .poker-droparea {
     margin: 0;
     padding: 0 5px 5px 0;
     position: relative;
@@ -76,3 +103,10 @@ box {
 }
 
 
+/* #chat
+--------------------------- */
+.chat-container {
+    border: solid 1px;
+    height: 480px;
+    width: 300px;
+}

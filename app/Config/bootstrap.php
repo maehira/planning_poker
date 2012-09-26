@@ -181,3 +181,25 @@ CakeLog::config('error', array(
 ));
 
 CakePlugin::load('TwitterBootstrap');
+
+
+
+/////////////
+
+Configure::write('Security', array(
+    'level' => 'high',
+    'salt' => 'd9nk3r834nerkfgnrklzxcvbnm',
+    'cipherSeed' => '82934632740237423657'
+));
+
+Configure::write('Session', array(
+    'defaults' => 'database',
+    'cookie' => 'CAKEPHP',
+    'timeout' => 259200,
+    'ini' => Array(
+        'session.cookie_lifetime' => 0, //ブラウザを閉じた時にセッションを破棄
+        'session.gc_maxlifetime' => 2580000,
+        'session.gc_probability' => 1,
+        'session.gc_divisor' => 100
+    )
+));
