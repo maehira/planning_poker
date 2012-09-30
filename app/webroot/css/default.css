@@ -106,7 +106,18 @@ box {
 /* #chat
 --------------------------- */
 .chat-container {
-    border: solid 1px;
     height: 480px;
     width: 300px;
 }
+
+.chat-messages {
+    height: 400px;
+    border: solid 1px;
+}
+
+.chat-input textarea {
+    height: 50px;
+    width: 95%;
+    resize: none;
+}
+

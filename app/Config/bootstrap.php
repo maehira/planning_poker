@@ -203,3 +203,6 @@ Configure::write('Session', array(
         'session.gc_divisor' => 100
     )
 ));
+
+Configure::load("pusher");
+
