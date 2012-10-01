@@ -14,6 +14,16 @@ class PokerController extends AppController {
 
     function index() {
         //var_dump($_POST);
+        
+        $this->set("pusher_key", Configure::read("Pusher.key"));
+        
+        if(isset($_POST["backlogs"])){
+            $this->layout = '';
+            $this->render('index2');
+        } else {
+            $this->render('index');
+        }
+        
     }
 
     function index2() {
@@ -22,6 +32,12 @@ class PokerController extends AppController {
 
     function index3() {
         
+    }
+    
+    function send_chat_message() {
+        $this->autoRender = false;
+        $this->notice_member();
+        printf("<p>aaa</p>");
     }
 
     function alert() {
@@ -32,11 +48,11 @@ class PokerController extends AppController {
         $this->set("pusher_key", Configure::read("Pusher.key"));
     }
 
-    function call() {
+    function notice_member() {
         $conf = Configure::read("Pusher");
         $pusher = new Pusher($conf["key"], $conf["secret"], $conf["app_id"]);
         $pusher->trigger('private-channel', 'test_event', 'hello pussher!!');
-        printf("trigger called.");
+        //printf("trigger called.");
     }
 
     function pusher_auth() {
