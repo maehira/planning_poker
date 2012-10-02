@@ -37,3 +37,14 @@ Get Support!
 [![Bake Status](https://secure.travis-ci.org/cakephp/cakephp.png?branch=master)](http://travis-ci.org/cakephp/cakephp)
 
 ![Cake Power](https://raw.github.com/cakephp/cakephp/master/lib/Cake/Console/Templates/skel/webroot/img/cake.power.gif)
+
+
+【メモ】
+
+・セッション用のテーブルを作成
+CREATE TABLE IF NOT EXISTS `cake_sessions` (
+  `id` varchar(255) NOT NULL DEFAULT '',
+  `data` text NOT NULL,
+  `expires` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
