@@ -35,9 +35,10 @@ class PokerController extends AppController {
     }
     
     function send_chat_message() {
+        $chat_message = $_POST['chat_message'];
         $this->autoRender = false;
-        $this->notice_member();
-        printf("<p>aaa</p>");
+        $this->notice_member($chat_message);
+        //printf("<p>$chat_message</p>");
     }
 
     function alert() {
@@ -48,10 +49,11 @@ class PokerController extends AppController {
         $this->set("pusher_key", Configure::read("Pusher.key"));
     }
 
-    function notice_member() {
+    function notice_member($chat_message) {
         $conf = Configure::read("Pusher");
         $pusher = new Pusher($conf["key"], $conf["secret"], $conf["app_id"]);
-        $pusher->trigger('private-channel', 'test_event', 'hello pussher!!');
+        $uid = $this->Session->read("uid");
+        $pusher->trigger('private-channel', 'test_event', "<p>$uid : $chat_message</p>");
         //printf("trigger called.");
     }
 

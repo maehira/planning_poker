@@ -51,10 +51,10 @@
             
             
         <div class="span4 chat-container">
-            <div id="chat-messages" class="chat-messages">チャット</div>
+            <div id="chat-messages" class="chat-messages"></div>
             <form method="post" id="send_chat_message_form">
                 <div class="chat-input">
-                    <textarea name="chat_message"></textarea>
+                    <textarea id="chat_message" name="chat_message"></textarea>
                 </div>
                 <button id="send_chat_message" class="btn btn-large" style="width: 90px;">送信</button>
             </form>
@@ -80,6 +80,6 @@
     var channel = pusher.subscribe('private-channel');
     
     channel.bind('test_event', function(data) {
-      alert(data);
+      $("#chat-messages").append(data);
     });
 </script>

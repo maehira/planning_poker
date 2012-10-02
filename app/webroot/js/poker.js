@@ -37,7 +37,7 @@
         $.ajax({
             type: 'POST',
             url: 'send_chat_message',
-            data: 'word=' + $(".chat_message").val(),
+            data: 'chat_message=' + $("#chat_message").val(),
             success: function(data){
                 $("#chat-messages").append(data);
             }
