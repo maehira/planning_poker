@@ -1,7 +1,10 @@
 #tmp/*
 #app/tmp/*
 /nbproject/private/
-
+app/Config/pusher.php
+nbproject/*
+nbproject/project.properties
+/nbproject/private/
 
 
 #################
@@ -12,16 +15,33 @@ app/tmp/**/*
 
 
 app/tmp/cache/*
+!app/tmp/cache/
 !app/tmp/cache/empty
 
 app/tmp/cache/models/*
+!app/tmp/cache/models/
 !app/tmp/cache/models/empty
 
 app/tmp/cache/persistent/*
+!app/tmp/cache/persistent/
 !app/tmp/cache/persistent/empty
 
 app/tmp/cache/views/*
+!app/tmp/cache/views/
 !app/tmp/cache/views/empty
+
+app/tmp/cache/logs/*
+!app/tmp/cache/logs/
+!app/tmp/cache/logs/empty
+
+app/tmp/cache/sessions/*
+!app/tmp/cache/sessions/
+!app/tmp/cache/sessions/empty
+
+app/tmp/cache/tests/*
+!app/tmp/cache/tests/
+!app/tmp/cache/tests/empty
+
 
 
 
