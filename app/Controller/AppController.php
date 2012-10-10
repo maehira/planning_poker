@@ -41,8 +41,4 @@ class AppController extends Controller {
       'Form' => array('className' => 'TwitterBootstrap.BootstrapForm'),
       'Paginator' => array('className' => 'TwitterBootstrap.BootstrapPaginator'),
     );
-    
-    function beforeFilter() { 
-        $this->set("uid",$this->Session->read("uid"));
-    }
 }

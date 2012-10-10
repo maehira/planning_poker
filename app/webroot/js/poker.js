@@ -36,7 +36,7 @@
     $("#send_chat_message").click(function(){
         $.ajax({
             type: 'POST',
-            url: 'send_chat_message',
+            url: 'Poker/send_chat_message',
             data: 'chat_message=' + $("#chat_message").val(),
             success: function(data){
                 $("#chat-messages").append(data);
