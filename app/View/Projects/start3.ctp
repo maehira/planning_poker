@@ -1,3 +1,9 @@
+<?php
+    echo $this->Form->create(false, array('type' => 'post', 'action' => './start'));
+    echo $this->Form->hidden('step', array('value' => 'reset'));
+    echo $this->Form->end('最初から(データはそのまま残ります)');
+?>
+
 <div id="dragitemlist">
   <ul class="draglist">
     <li>

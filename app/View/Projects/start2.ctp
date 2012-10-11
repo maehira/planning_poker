@@ -39,8 +39,15 @@
 
 <br class="clear" />
 
-<form action="index3" method="post">
+<?php
+    echo $this->Form->create(false, array('type' => 'post', 'action' => './start'));
+    echo $this->Form->hidden('step', array('value' => 'reset'));
+    echo $this->Form->end('最初から(データはそのまま残ります)');
+?>
+
+<form action="./start" method="post">
 <button id="submit" class="btn btn-large" style="width: 150px;">ポーカーの開始</button>
+<input type="hidden" name="data[step]" value="next">
 
 <div style="margin-top: 10px;">
     <table class="table table-striped table-bordered" style="width: 660px;">

@@ -42,6 +42,12 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
         <?php echo $this->Html->script('jquery-ui-1.7.3.custom.min'); ?>
         <?php echo $this->Html->css('jquery-ui-1.7.3.custom'); ?>
         <?php echo $this->Html->css('default'); ?>
+        <?php
+            if($this->name == 'Projects' && $this->action == 'start') {
+                echo $this->Html->script('http://js.pusher.com/1.11/pusher.min.js');
+                echo $this->Html->css('projects_start');
+            }
+        ?>
         </head>
 <body>
 	<div id="container">

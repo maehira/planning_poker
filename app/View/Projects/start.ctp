@@ -2,7 +2,7 @@
 
 <div id="wrapper_poker">
     <form id="backlog_send_form" method="post">
-        <button id="submit" class="btn btn-large" style="width: 150px;">
+        <button id="submit_backlog_send_form" class="btn btn-large" style="width: 150px;">
             次へ
         </button>
     </form>
@@ -63,8 +63,8 @@
     </div>
 </div>
 
-<?php echo $this->Html->script('http://js.pusher.com/1.11/pusher.min.js', true); ?>
-<?php echo $this->Html->script('poker'); ?>
+
+<?php echo $this->Html->script('projects_start'); ?>
 <script type="text/javascript">
     // Enable pusher logging - don't include this in production
     Pusher.log = function(message) {
@@ -74,7 +74,7 @@
     // Flash fallback logging - don't include this in production
     WEB_SOCKET_DEBUG = true;
     
-    Pusher.channel_auth_endpoint = 'Poker/pusher_auth'; //自サイトの認証URL
+    Pusher.channel_auth_endpoint = './pusher_auth'; //自サイトの認証URL
 
     var pusher = new Pusher("<?php echo($pusher_key) ?>"); // ←API取得時に控えたAPI keyを書く。
     var channel = pusher.subscribe('private-channel');

@@ -1,21 +1,27 @@
 /* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * sortableのセット
  */
-
-
-    $('#sortable').sortable();
-    $('#sortable').disableSelection();
-        
-    $('#sortable').bind('sortstop', function (e, ui) {
+function set_sortable(id) {
+    $('#' + id).sortable();
+    $('#' + id).disableSelection();
+    $('#' + id).bind('sortstop', function (e, ui) {
         // ソートが完了したら実行される。
-        var rows = $('#sortable .rank');
+        var rows = $('#' + id + ' .rank');
         for (var i = 0, rowTotal = rows.length; i < rowTotal; i += 1) {
             $($('.rank')[i]).text(i + 1);
         }
     })
+}
+
+/*
+ * 
+ */
+
+set_sortable('sortable');
+        
     
-    $("#submit").click(function() {
+    
+    $("#submit_backlog_send_form").click(function() {
         var backlogs = [];
         var rows = $('#sortable #backLogText');
         for (var i = 0, rowTotal = rows.length; i < rowTotal; i += 1) {
@@ -23,8 +29,8 @@
         }
         $.ajax({
             type: 'POST',
-            url: 'index',
-            data: 'backlogs=' + backlogs,
+            url: './start',
+            data: 'backlogs=' + backlogs + '&data[step]=next',
             success: function(data){
                 $('#wrapper_poker').empty();
                 $('#wrapper_poker').append(data);
@@ -36,7 +42,7 @@
     $("#send_chat_message").click(function(){
         $.ajax({
             type: 'POST',
-            url: 'Poker/send_chat_message',
+            url: './send_chat_message',
             data: 'chat_message=' + $("#chat_message").val(),
             success: function(data){
                 $("#chat-messages").append(data);
