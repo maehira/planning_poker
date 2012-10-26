@@ -56,9 +56,11 @@ class ProjectsController extends AppController {
                 $this->render('start');
                 break;
             case 1:
+                $this->layout = '';
                 $this->render('start2');
                 break;
             case 2:
+                $this->layout = '';
                 $this->render('start3');
                 break;
         }

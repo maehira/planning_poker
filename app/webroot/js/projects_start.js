@@ -13,19 +13,15 @@ function set_sortable(id) {
     })
 }
 
-/*
- * 
- */
-
 set_sortable('sortable');
         
     
     
-    $("#submit_backlog_send_form").click(function() {
+    $("#submit_backlog").click(function() {
         var backlogs = [];
         var rows = $('#sortable #backLogText');
         for (var i = 0, rowTotal = rows.length; i < rowTotal; i += 1) {
-            backlogs.push(rows[i].name);
+            backlogs.push(rows[i].value);
         }
         $.ajax({
             type: 'POST',
@@ -49,15 +45,5 @@ set_sortable('sortable');
             }
         });
     });
-    
-    $('#backlog_send_form').submit(function() {
-        return false;
-    });
-    $('#send_chat_message_form').submit(function() {
-        return false;
-    });
 
 
-
-  
-    

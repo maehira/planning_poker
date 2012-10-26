@@ -5,33 +5,27 @@
 <div id="dragitemlist">
   <ul class="draglist">
     <li>
-      <span class="dragparts">
-        <img src="../img/poker/1.png" alt="1" />
+      <span class="dragparts" style="background-image: url(../img/poker/1.png);">
       </span>
     </li>
     <li>
-      <span class="dragparts">
-        <img src="../img/poker/2.png" alt="2" />
+      <span class="dragparts" style="background-image: url(../img/poker/2.png);">
       </span>
     </li>
     <li>
-      <span class="dragparts">
-        <img src="../img/poker/3.png" alt="3" />
+      <span class="dragparts" style="background-image: url(../img/poker/3.png);">
       </span>
     </li>
     <li>
-      <span class="dragparts">
-        <img src="../img/poker/5.png" alt="5" />
+      <span class="dragparts" style="background-image: url(../img/poker/5.png);">
       </span>
     </li>
     <li>
-      <span class="dragparts">
-        <img src="../img/poker/8.png" alt="8" />
+      <span class="dragparts" style="background-image: url(../img/poker/8.png);">
       </span>
     </li>
     <li>
-      <span class="dragparts">
-        <img src="../img/poker/13.png" alt="13" />
+      <span class="dragparts" style="background-image: url(../img/poker/13.png);">
       </span>
     </li>
   </ul>
@@ -149,7 +143,7 @@ $(function(){
 
         //一度配置した後、.dragparts_afterになった時のドラッグ処理
         function dragPartsAfter(){
-            $('.dragparts_after').draggable({
+            $('.dragparts_drop').draggable({
                 helper: 'clone',
                 revert: 'invalid',
                 zIndex: '1000'
@@ -166,14 +160,14 @@ $(function(){
             },
             drop: function(ev, ui){
                 $(this).empty();
-                $(this).append(ui.helper.clone().removeClass().addClass('dragparts_after'));
+                $(this).append(ui.helper.clone().removeClass().addClass('dragparts_drop').css({top:'0',left:'0'}));
                 dragPartsAfter();
             }
         });
  
         // 「#dragitemlist」エリアにドロップされた時の処理
         $('#dragitemlist').droppable({
-          accept: '.dragparts_after',
+          accept: '.dragparts_drop',
           tolerance: 'intersect',
           drop: function(ev, ui){
             ui.draggable.remove();

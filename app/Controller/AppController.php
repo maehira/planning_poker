@@ -33,7 +33,7 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
     //アプリケーション全体にAuthコンポーネントを適用
-    public $components = array('Auth', 'Session');
+    public $components = array('Auth', 'Security', 'Session');
     
     public $helpers = array(
       'Session',
@@ -41,4 +41,8 @@ class AppController extends Controller {
       'Form' => array('className' => 'TwitterBootstrap.BootstrapForm'),
       'Paginator' => array('className' => 'TwitterBootstrap.BootstrapPaginator'),
     );
+    
+    public function beforeFilter() {
+        $this->Security->csrfUseOnce = false;
+    }
 }

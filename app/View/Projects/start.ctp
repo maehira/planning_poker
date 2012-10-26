@@ -1,66 +1,55 @@
+<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+  <div class="flipper">
+    <div class="front">
+      <img src="../img/poker/5.png" alt="5" />
+    </div>
+    <div class="back">
+      <img src="../img/poker/1.png" alt="1" />
+    </div>
+  </div>
+</div>
+
 
 
 <div id="wrapper_poker">
-    <form id="backlog_send_form" method="post">
-        <button id="submit_backlog_send_form" class="btn btn-large" style="width: 150px;">
-            次へ
-        </button>
-    </form>
-        
-    <div class="row">
-        <div class="span8" style="margin-top: 10px">
-            <table class="table table-striped table-bordered" style="width: 560px;">
-                <thead>
-                    <tr>
-                        <th class="priorityNumber">優先順位</th>
-                        <th class="backLog">プロダクトバックログ</th>
-                    </tr>
-                </thead>
-                <tbody id="sortable">
-                    <tr>
-                        <td class="priorityNumber rank">1</td>
-                        <th class="backLog">
-                            <textarea id="backLogText" name="1000" style="resize: vertical; width: 400px">
-                            </textarea>
-                        </th>
-                    </tr>
-                    <tr>
-                        <td class="priorityNumber rank">2</td>
-                        <th class="backLog">
-                            <textarea id="backLogText" name="1001" style="resize: vertical; width: 400px">
-                            </textarea>
-                        </th>
-                    </tr>
-                    <tr>
-                        <td class="priorityNumber rank">3</td>
-                        <th class="backLog">
-                            <textarea id="backLogText" name="1002" style="resize: vertical; width: 400px">
-                            </textarea>
-                        </th>
-                    </tr>
-                    <tr>
-                        <td class="priorityNumber rank">4</td>
-                        <th class="backLog">
-                            <textarea id="backLogText" name="1003" style="resize: vertical; width: 400px">
-                            </textarea>
-                        </th>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-            
-            
-        <div class="span4 chat-container">
-            <div id="chat-messages" class="chat-messages"></div>
-            <form method="post" id="send_chat_message_form">
-                <div class="chat-input">
-                    <textarea id="chat_message" name="chat_message"></textarea>
-                </div>
-                <button id="send_chat_message" class="btn btn-large" style="width: 90px;">送信</button>
-            </form>
-        </div>
-            
+  <button id="submit_backlog" class="btn btn-large" style="width: 150px;">
+    次へ
+  </button>
+  
+  <div style="margin-left: -20px;">
+    <div class="span8" style="margin-top: 10px">
+      <div>優先順位 &nbsp&nbsp&nbspプロダクトバックログ</div>
+      <ul id="sortable">
+        <li class="ui-state-default">
+          <span class="priorityNumber rank">1</span>
+          <textarea id="backLogText" name="1000" style="resize: vertical; width: 400px"></textarea>
+        </li>
+        <li class="ui-state-default">
+          <span class="priorityNumber rank">2</span>
+          <textarea id="backLogText" name="1001" style="resize: vertical; width: 400px"></textarea>
+        </li>
+        <li class="ui-state-default">
+          <span class="priorityNumber rank">3</span>
+          <textarea id="backLogText" name="1002" style="resize: vertical; width: 400px"></textarea>
+        </li>
+        <li class="ui-state-default">
+          <span class="priorityNumber rank">4</span>
+          <textarea id="backLogText" name="1003" style="resize: vertical; width: 400px"></textarea>
+        </li>
+        <li class="ui-state-default">
+          <span class="priorityNumber rank">5</span>
+          <textarea id="backLogText" name="1004" style="resize: vertical; width: 400px"></textarea>
+        </li>
+      </ul>
     </div>
+    <div class="span4 chat-container">
+      <div id="chat-messages" class="chat-messages"></div>
+        <div class="chat-input">
+          <textarea id="chat_message" name="chat_message"></textarea>
+        </div>
+        <button id="send_chat_message" class="btn btn-large" style="width: 90px;">送信</button>
+    </div>
+  </div>
 </div>
 
 
