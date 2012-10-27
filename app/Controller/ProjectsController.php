@@ -22,6 +22,10 @@ class ProjectsController extends AppController {
         
     }
     
+    public function start_x() {
+        $this->set("pusher_key", Configure::read("Pusher.key"));
+    }
+    
     // バックログ作成、ベース見積り、プランニングポーカー
     public function start() {
         $this->set("pusher_key", Configure::read("Pusher.key"));

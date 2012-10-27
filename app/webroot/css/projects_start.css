@@ -20,7 +20,7 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
-    width: 480px;;
+    width: 480px;
 }
 #sortable li {
     margin: 0 3px 3px 3px;
@@ -144,16 +144,16 @@ box {
 
 
 /* -------------------------------------------- */
-/* -Ql http://davidwalsh.name/css-flip -*/
+/* -ï¿½Qï¿½l http://davidwalsh.name/css-flip -*/
 
-/* 3D•ÏŒ`‚Ì‰œs‚«‚Ì[‚³‚ğw’è */
+/* 3Dï¿½ÏŒ`ï¿½Ì‰ï¿½ï¿½sï¿½ï¿½ï¿½Ì[ï¿½ï¿½ï¿½ï¿½ï¿½wï¿½ï¿½ */
 .flip-container {
   -webkit-perspective: 1000; 
   -moz-perspective: 1000;
   -o-perspective: 1000;
   perspective: 1000;
 }
-/* hover‚É‰ñ“] */
+/* hoverï¿½ï¿½ï¿½É‰ï¿½] */
 .flip-container:hover .flipper,
 .flip-container.hover .flipper {
   -webkit-transform: rotateY(180deg);

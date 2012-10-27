@@ -35,17 +35,22 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
+
         <?php echo $this->Html->css('bootstrap.min'); ?>
         <?php echo $this->Html->css('bootstrap-responsive.min'); ?>
         <?php echo $this->Html->script('bootstrap.min'); ?>
-        <?php echo $this->Html->script('jquery-1.7.2'); ?>
-        <?php echo $this->Html->script('jquery-ui-1.7.3.custom.min'); ?>
-        <?php echo $this->Html->css('jquery-ui-1.7.3.custom'); ?>
+        <?php echo $this->Html->script('http://code.jquery.com/jquery-1.8.2.js'); ?>
+        <?php echo $this->Html->script('http://code.jquery.com/ui/1.9.1/jquery-ui.js'); ?>
+        <?php echo $this->Html->css('http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css'); ?>
         <?php echo $this->Html->css('default'); ?>
         <?php
             if($this->name == 'Projects' && $this->action == 'start') {
                 echo $this->Html->script('http://js.pusher.com/1.11/pusher.min.js');
                 echo $this->Html->css('projects_start');
+            }
+            if($this->name == 'Projects' && $this->action == 'start_x') {
+                echo $this->Html->script('http://js.pusher.com/1.11/pusher.min.js');
+                echo $this->Html->css('projects_start_x');
             }
         ?>
         </head>

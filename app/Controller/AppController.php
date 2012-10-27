@@ -33,7 +33,8 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
     //アプリケーション全体にAuthコンポーネントを適用
-    public $components = array('Auth', 'Security', 'Session');
+    //public $components = array('Auth', 'Security', 'Session');
+    public $components = array('Auth', 'Session');
     
     public $helpers = array(
       'Session',
@@ -43,6 +44,6 @@ class AppController extends Controller {
     );
     
     public function beforeFilter() {
-        $this->Security->csrfUseOnce = false;
+        //$this->Security->csrfUseOnce = false;
     }
 }
