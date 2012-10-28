@@ -3,18 +3,18 @@
     <input id="add_test" class="btn" type="button" value="テスト用付箋を枠内に追加">
 </div>
 
-<!--<div style="width: 250px; height: 250px; border: solid 1px #123; overflow: auto;　text-wrap: none;">
-    <div style="float: left; width: 100px;">aaaaaaaaaaa</div>
-    <div style="float: left; width: 100px;">bbbbbbbb</div>
-    <div style="float: left; width: 100px;">cccccccc</div>
-    <div style="float: left; width: 100px;">dddddddddddddd</div>
-</div>-->
+
 
 <div id="sortable">
-    <div class="ui-state-default"><span class="priority">1</span></div>
-    <div class="ui-state-default"><span class="priority">2</span></div>
-    <div class="ui-state-default"><span class="priority">3</span></div>
-    <div class="ui-state-default"><span class="priority">4</span></div>
+    <div class="line ui-state-default">
+        <div class="priority">1</div>
+        <div id="scrollarea">
+            <div class="items"></div>
+        </div>
+    </div>
+    <div class="line ui-state-default"><span class="priority">2</span></div>
+    <div class="line ui-state-default"><span class="priority">3</span></div>
+    <div class="line ui-state-default"><span class="priority">4</span></div>
 </div>
 
 <div style="height: 500px; width: 300px; float: left; margin-left: 15px;">

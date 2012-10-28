@@ -6,6 +6,8 @@ body {
   clear: both;
 }
 
+/* 付箋
+-------------------------- */
 .stittl {
     padding: 1px 3px;
     font-size: 13px;
@@ -25,19 +27,15 @@ body {
 --------------------------- */
 #sortable {
     float: left;
-    list-style-type: none;
     margin: 30px 0 0 0;
-    padding: 0;
     width: 720px;
     height: 500px;
     overflow-y: auto;
 }
 
-#sortable div {
-    height: 80px;
+#sortable .line {
+    height: 120px;
     margin: 0 3px 3px 3px;
-    padding: 0.3em;
-    padding-left: 1em;
     font-size: 15px;
     font-weight: bold;
     cursor: move;
@@ -66,4 +64,22 @@ body {
     width: 95%;
     resize: none;
 }
+
+/* 横スクロール
+--------------------------- */
+#scrollarea{
+    float: left;
+    width: 98%;
+    height: 97%;
+    overflow-x: auto;
+    border: solid 1px #123;
+}
+.items {
+    width: 610px;
+}
+.item textarea {
+    z-index: 3000;
+    display: block;
+}
+
 
