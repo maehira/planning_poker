@@ -82,4 +82,29 @@ body {
     display: block;
 }
 
+/* ポーカーポップアップ
+--------------------------- */
+#poker_area {
+    background-color: #FFFFFF;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0 0 25px 5px #999999;
+    color: #111111;
+    display: none;
+    min-width: 450px;
+    padding: 25px;
+}
 
+.poker_close {
+    border-radius: 7px 7px 7px 7px;
+    font: bold 131% sans-serif;
+    padding: 0 6px 2px;
+    position: absolute;
+    right: -7px;
+    top: -7px;
+    background-color: #2B91AF;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+}

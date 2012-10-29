@@ -26,6 +26,12 @@ class ProjectsController extends AppController {
         $this->set("pusher_key", Configure::read("Pusher.key"));
     }
     
+    public function poker() {
+        $this->autoRender = false;
+        $this->render("poker");
+//        return new CakeResponse(array("body" => ""));
+    }
+    
     // バックログ作成、ベース見積り、プランニングポーカー
     public function start() {
         $this->set("pusher_key", Configure::read("Pusher.key"));
@@ -90,9 +96,9 @@ class ProjectsController extends AppController {
         }
     }
     
-    private function connect() {
-        $this->set("pusher_key", Configure::read("Pusher.key"));
-    }
+//    private function connect() {
+//        $this->set("pusher_key", Configure::read("Pusher.key"));
+//    }
 
     private function notice_member($chat_message) {
         $username = AuthComponent::user('username');
