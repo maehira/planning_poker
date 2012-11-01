@@ -62,10 +62,12 @@ class DATABASE_CONFIG {
 	public $default = array(
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
-		'host' => 'localhost',
-		'login' => 'root',
-		'password' => 'password',
-		'database' => 'planning_poker',
+		//'host' => 'localhost',
+		'host' => 'poker-yutaka.azva.dotcloud.net',
+                'port' => '40204'
+		'login' => 'poker',
+		'password' => 'poker',
+		'database' => 'poker',
 		'prefix' => '',
 		'encoding' => 'utf8',
 	);
@@ -74,9 +76,9 @@ class DATABASE_CONFIG {
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
 		'host' => 'localhost',
-		'login' => 'root',
-		'password' => 'password',
-		'database' => 'planning_poker',
+		'login' => 'poker',
+		'password' => 'poker',
+		'database' => 'poker',
 		'prefix' => '',
 		'encoding' => 'utf8',
 	);
