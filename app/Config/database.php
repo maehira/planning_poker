@@ -64,7 +64,7 @@ class DATABASE_CONFIG {
 		'persistent' => false,
 		//'host' => 'localhost',
 		'host' => 'poker-yutaka.azva.dotcloud.net',
-                'port' => '40204'
+                'port' => '40204',
 		'login' => 'poker',
 		'password' => 'poker',
 		'database' => 'poker',
