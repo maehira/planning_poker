@@ -19,8 +19,13 @@ set_sortable('backlog');
 /**
  * バックログコンテンツの最小化、最大化
  */
-function toggle_backlog_contents(id) {
-    alert(id);
+function toggle_backlog_contents(id, obj) {
+    $("#"+id).toggle();
+    if (obj.innerHTML == "Open") {
+        obj.innerHTML = "Close";
+    } else {
+        obj.innerHTML = "Open"
+    }
 }
 
 /**
@@ -50,14 +55,14 @@ $(function() {
         $($('#backlog .items')[0]).append(sticky);
         var width = $($('#backlog .items')[0]).width() + 180
         $($('#backlog .items')[0]).width(width);
-        set_husen_in_line('stickies1_100' ,200, 75, '#666', '#fff', '1px solid #ccc', 12, '#eeeeee');
+        set_fusen_in_line('stickies1_100' ,200, 75, '#666', '#fff', '1px solid #ccc', 12, '#eeeeee');
     });
 })
 
 /**
  * ライン(プロダクトバックログ)へ追加した付箋の設定
  */
-function set_husen_in_line(stID, ww, wh, co, bc, lc, zi, tc){
+function set_fusen_in_line(stID, ww, wh, co, bc, lc, zi, tc){
     $(stID).css({
         width: ww, 
         height: wh, 

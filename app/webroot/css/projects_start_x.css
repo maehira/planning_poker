@@ -34,6 +34,19 @@ body {
 ================================================================================
 */
 
+#head #user_list div {
+    float: left;
+    margin-right: 10px;
+    width: 120px;
+}
+
+#head #user_list img {
+    width: 60px;
+    height: 60px;
+/*    filter: Alpha(opacity=50);  透明化　IE系 */
+/*    opacity: 0.5;  透明化　Mozzila系 */
+}
+
 #head .action {
     float: left;
 }
@@ -92,7 +105,6 @@ body {
 }
 
 #backlog .line {
-    height: 120px;
     margin: 0 3px 3px 3px;
     font-size: 15px;
     font-weight: bold;
@@ -103,29 +115,27 @@ body {
 #backlog .priority {
     float: left;
     width: 20px;
-    height: 97%;
-    line-height: 100px;
+/*    line-height: 100px;*/
     text-align: center;
-    border: solid 1px;
 }
 
 #backlog .backlog_contents {
     float: left;
     width: 96%;
-    height: 97%;
-    border: solid 1px #123;
 }
 
 #backlog .backlog_contents .title {
     width: 400px;
-    height: 10px;
-    font-size: 70%;
+    height: 12px;
+    font-size: 75%;
 }
 
-#backlog #scrollarea{
+#backlog .scrollarea{
     overflow-x: auto;
-    
+    height: 100px;
+    -khtml-user-drag: element; /*webkit系ブラウザでドラッグ＆ドロップを動かすための指定 */
 }
+
 #backlog .items {
     width: 610px;
 }

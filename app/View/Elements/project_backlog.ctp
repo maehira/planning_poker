@@ -2,8 +2,9 @@
     <div class="priority">1</div>
     <div class="backlog_contents">
         <input type="text" class="title" />
-        <a href="#" onclick="toggle_backlog_contents('contents_1'); return false;">最小化</a>
-        <div id="scrollarea" id="contents_1">
+        <button id="start_poker" class="btn">ポーカー開始</button>
+        <a href="#" onclick="toggle_backlog_contents('contents_1', this); return false;">Close</a>
+        <div id="contents_1" class="scrollarea" ondragover="f_dragover(event)" ondrop="f_drop(event, 'contents_1')">
             <div class="items"></div>
         </div>
     </div>

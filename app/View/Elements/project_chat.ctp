@@ -1,4 +1,4 @@
-<input id="new_husen" class="btn" type="button" value="付箋を追加する">
+<input id="new_fusen" class="btn" type="button" value="付箋を追加する">
 <div class="chat-container">
     <div id="chat-messages" class="chat-messages"></div>
     <div class="chat-input">

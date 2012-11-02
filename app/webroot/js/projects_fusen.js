@@ -1,27 +1,27 @@
-var husen_number = 1;
+var fusen_number = 1;
 
 $(function() {
-    $('#new_husen').click(function() {
+    $('#new_fusen').click(function() {
         make();
-        husen_number = husen_number + 1; 
+        fusen_number = fusen_number + 1; 
     });
 })
 
 function make() {
-    var sticky = $('<div id="stickies1_' + husen_number + '"><div class="stittl">' +
+    var sticky = $('<div draggable="true" ondragstart="f_dragstart(event)" ondrag="f_drag(event, this)" id="stickies1_' + fusen_number + '"><div class="stittl">' +
                    'maehira<div class="sticlose">×</div></div>' +
                    '<textarea class="stimain" id="" name="1000"></textarea></div>'
                  );
     sticky.appendTo('body');
-    var id = '#stickies1_' + husen_number;
-    set_husen(id ,850 , 80, 200, 75, '#666', '#fff', '1px solid #ccc', 12, '#eeeeee');
+    var id = '#stickies1_' + fusen_number;
+    set_fusen(id ,850 , 80, 200, 75, '#666', '#fff', '1px solid #ccc', 12, '#ddeedd');
   }
 
 
 /**
  * 付箋設定
  */
-function set_husen(stID, wx, wy, ww, wh, co, bc, lc, zi, tc){
+function set_fusen(stID, wx, wy, ww, wh, co, bc, lc, zi, tc){
     $(stID).css({
         position: 'absolute', 
         top: wy, 
@@ -39,23 +39,23 @@ function set_husen(stID, wx, wy, ww, wh, co, bc, lc, zi, tc){
     $(stID + ' .stittl .sticlose').click(function(){
         $(stID).fadeOut('slow');
     });
-    $(stID + ' .stittl').mousedown(function(e){
-        var mx = e.pageX;
-        var my = e.pageY;
-        $(document).on('mousemove', function(e) {
-            wx += e.pageX - mx;
-            wy += e.pageY - my;
-            $(stID).css({
-                top: wy, 
-                left: wx
-            });
-            mx = e.pageX;
-            my = e.pageY;
-            return false;
-        }).one('mouseup', function(e){
-            $(document).off('mousemove');
-        });
-        return false;
-    });
+//    $(stID + ' .stittl').mousedown(function(e){
+//        var mx = e.pageX;
+//        var my = e.pageY;
+//        $(document).on('mousemove', function(e) {
+//            wx += e.pageX - mx;
+//            wy += e.pageY - my;
+//            $(stID).css({
+//                top: wy, 
+//                left: wx
+//            });
+//            mx = e.pageX;
+//            my = e.pageY;
+//            return false;
+//        }).one('mouseup', function(e){
+//            $(document).off('mousemove');
+//        });
+//        return false;
+//    });
 }
 
