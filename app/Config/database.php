@@ -62,9 +62,9 @@ class DATABASE_CONFIG {
 	public $default = array(
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
-		//'host' => 'localhost',
-		'host' => 'poker-yutaka.azva.dotcloud.net',
-                'port' => '40204',
+		'host' => 'localhost',
+		//'host' => 'poker-yutaka.azva.dotcloud.net',
+                //'port' => '40204',
 		'login' => 'poker',
 		'password' => 'poker',
 		'database' => 'poker',

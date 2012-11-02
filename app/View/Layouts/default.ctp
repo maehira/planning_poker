@@ -51,6 +51,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
             if($this->name == 'Projects' && $this->action == 'start_x') {
                 echo $this->Html->script('http://js.pusher.com/1.11/pusher.min.js');
                 echo $this->Html->script('jquery.bpopup-0.7.0.min');
+                echo $this->Html->script('projects_fusen');
                 echo $this->Html->css('projects_start_x');
             }
         ?>
