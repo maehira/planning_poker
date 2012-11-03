@@ -6,11 +6,8 @@
 	</div>
 
 	<div class="span4">
-		<div id="head">
-			<?php echo $this->element('project_head'); ?>
-		</div>
-		<div id="chat">
-		    <?php echo $this->element('project_chat'); ?>
+		<div id="side">
+			<?php echo $this->element('project_side'); ?>
 		</div>
 	</div>
 </div>

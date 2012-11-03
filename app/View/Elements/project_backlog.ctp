@@ -1,4 +1,4 @@
-<div id="user_list" class="row-fluid">
+<div class="row-fluid">
     <?php echo $this->element('project_timer'); ?>
 </div>
 
@@ -24,3 +24,4 @@
     </div>
 <?php endfor ?>
 
+<div style="height: 900px"></div>
