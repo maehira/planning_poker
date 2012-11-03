@@ -59,25 +59,6 @@ function appendBacklogField(priority){
 
 
 
-
-
-
-/**
- * バックログ内に付箋を追加（テスト段階）
- */
-$(function() {
-    $('#add_test').click(function() {
-        var sticky = $('<div id="stickies1_100" style="float: left"><div class="stittl">' +
-                   'maehira<div class="sticlose">×</div></div>' +
-                   '<textarea class="stimain" id="" name="1000"></textarea></div>'
-                     );
-        $($('#backlog .items')[0]).append(sticky);
-        var width = $($('#backlog .items')[0]).width() + 180
-        $($('#backlog .items')[0]).width(width);
-        set_fusen_in_line('stickies1_100' ,200, 75, '#666', '#fff', '1px solid #ccc', 12, '#eeeeee');
-    });
-})
-
 /**
  * ライン(プロダクトバックログ)へ追加した付箋の設定
  */

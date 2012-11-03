@@ -130,7 +130,7 @@ class ProjectsController extends AppController {
         $conf = Configure::read("Pusher");
         $pusher = new Pusher($conf["key"], $conf["secret"], $conf["app_id"]);
         $pusher->trigger('private-channel', 'fix_fusen',array(
-                            'add_area_id'=>$add_area_id,
+                            'add_area_id'=>$_POST['add_area_id'],
                             'userid'=>$userid));
         return new CakeResponse(array("body" => ""));
     }

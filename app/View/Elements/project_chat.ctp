@@ -89,8 +89,8 @@
         }
     });
     channel.bind('fix_fusen', function(data) {
-//        if(data.userid != <?php echo AuthComponent::user('id');?>){
+        if(data.userid != <?php echo AuthComponent::user('id');?>){
             fix_fusen_from_other(data.add_area_id);
-//        }
+        }
     });
 </script>
