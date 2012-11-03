@@ -71,9 +71,6 @@
 */
 
 #backlog {
-    float: left;
-    margin: 0;
-    overflow-y: auto;
 }
 
 #backlog .line {

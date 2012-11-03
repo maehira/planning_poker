@@ -23,6 +23,11 @@ body {
     top: 60px;
 }
 
+.offline {
+    opacity: 0.2;
+}
+
+
 
 
 /* Responsive

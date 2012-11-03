@@ -1,24 +1,24 @@
 <div id="side-menu" class="row-fluid">
 	<div id="user_list">
 		<ul class="thumbnails">
-			<li class="span2">
-				<?php echo $this->Html->link($this->Html->image('user/user1.png'), '#', array('class' => 'thumbnail', 'rel' => 'tooltip', 'data-original-title' => 'mawatari', 'escape' => false)); ?>
+			<li id="user01" class="user-icon span2">
+				<?php echo $this->Html->link($this->Html->image('user/user1.png'), '#', array('class' => 'thumbnail offline', 'rel' => 'tooltip', 'data-original-title' => 'mawatari', 'escape' => false)); ?>
 				<div id="select_card_zone_mawatari"></div>
 			</li>
-			<li class="span2">
-				<?php echo $this->Html->link($this->Html->image('user/user2.png'), '#', array('class' => 'thumbnail', 'rel' => 'tooltip', 'data-original-title' => 'oota', 'escape' => false)); ?>
+			<li id="user02" class="user-icon span2">
+				<?php echo $this->Html->link($this->Html->image('user/user2.png'), '#', array('class' => 'thumbnail offline', 'rel' => 'tooltip', 'data-original-title' => 'oota', 'escape' => false)); ?>
 				<div id="select_card_zone_oota"></div>
 			</li>
-			<li class="span2">
-				<?php echo $this->Html->link($this->Html->image('user/user3.png'), '#', array('class' => 'thumbnail', 'rel' => 'tooltip', 'data-original-title' => 'maehira', 'escape' => false)); ?>
+			<li id="user03" class="user-icon span2">
+				<?php echo $this->Html->link($this->Html->image('user/user3.png'), '#', array('class' => 'thumbnail offline', 'rel' => 'tooltip', 'data-original-title' => 'maehira', 'escape' => false)); ?>
 				<div id="select_card_zone_maehira"></div>
 			</li>
-			<li class="span2">
-				<?php echo $this->Html->link($this->Html->image('user/user4.png'), '#', array('class' => 'thumbnail', 'rel' => 'tooltip', 'data-original-title' => 'seike', 'escape' => false)); ?>
+			<li id="user04" class="user-icon span2">
+				<?php echo $this->Html->link($this->Html->image('user/user4.png'), '#', array('class' => 'thumbnail offline', 'rel' => 'tooltip', 'data-original-title' => 'seike', 'escape' => false)); ?>
 				<div id="select_card_zone_seike"></div>
 			</li>
-			<li class="span2">
-				<?php echo $this->Html->link($this->Html->image('user/user5.png'), '#', array('class' => 'thumbnail', 'rel' => 'tooltip', 'data-original-title' => 'iPad欲しい', 'escape' => false)); ?>
+			<li id="user05" class="user-icon span2">
+				<?php echo $this->Html->link($this->Html->image('user/user5.png'), '#', array('class' => 'thumbnail offline', 'rel' => 'tooltip', 'data-original-title' => 'iPad欲しい', 'escape' => false)); ?>
 				<div id="select_card_zone_iPad"></div>
 			</li>
 		</ul>
@@ -132,10 +132,21 @@
 	});
 	// 入室イベントのキャッチ
 	channel.bind('join_event', function(e) {
+		var data = $.parseJSON(e);
 		$('#chat-loading').hide();
+		// ユーザアイコンを有効にする。とりあえず動かす。
+		if (data.username == ' @mawatari') {
+			$('#user01 > a').removeClass('offline');
+		} else if (data.username == ' @oota') {
+			$('#user02 > a').removeClass('offline');
+		} else if (data.username == ' @maehira') {
+			$('#user03 > a').removeClass('offline');
+		} else if (data.username == ' @seike') {
+			$('#user04 > a').removeClass('offline');
+		}
 		$('#chat-input').fadeIn(500);
 		$('#textbox').focus();
-		var data = $.parseJSON(e);
+
 		var item = $('<li/>').append(
 			$('<div/>').append(
 			$('<i/>').addClass('icon-user'))
