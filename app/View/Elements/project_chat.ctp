@@ -1,7 +1,7 @@
 <div id="chat-area">
 	<div class="input-prepend">
 		<span class="add-on" id="user-name"><i class="icon-user"></i></span>
-		<input type="text" id="textbox" placeholder="今なにしてる？">
+		<input type="text" id="textbox" placeholder="チャットしよう">
 	</div>
 </div>
 <ul id="chat-history" class="unstyled row-fluid"></ul>
@@ -30,34 +30,34 @@
 
 	var username = $('#username').text();
 
-	// チャット要素のベース作成
-
-	// 入室イベントをキャッチ
-	pusher.connection.bind('connected', function() {
-	var item = $('<li/>').append(
-		$('<div/>').append(
-		$('<i/>').addClass('icon-user'))
-	);
+	// 入室イベントの発生
+	channel.bind('pusher:subscription_succeeded', function() {
+		$('#textbox').focus();
+		$.ajax({
+			type: 'POST',
+			url: './ws_chat_event',
+			data: 'type=join_event'
+		});
+	});
+	// 入室イベントのキャッチ
+	channel.bind('join_event', function(e) {
+		$('#user-name').append(username);
+		var data = $.parseJSON(e);
+		var item = $('<li/>').append(
+			$('<div/>').append(
+			$('<i/>').addClass('icon-user'))
+		);
 		item.addClass('alert alert-info fade in')
 		.prepend('<button type="button" class="close" data-dismiss="alert">×</button>')
-		.children('div').children('i').after(username + 'が入室しました');
-	$('#chat-history').prepend(item).hide().fadeIn(500);
+		.children('div').children('i').after(data.username + 'が入室しました');
+		$('#chat-history').prepend(item).hide().fadeIn(500);
 	});
 
-	// 退室イベントをキャッチ
-	pusher.connection.bind('disconnected', function() {
-	var item = $('<li/>').append(
-		$('<div/>').append(
-		$('<i/>').addClass('icon-user'))
-	);
-		item.addClass('alert fade in')
-		.prepend('<button type="button" class="close" data-dismiss="alert">×</button>')
-		.children('div').children('i').after(username + 'が退室しました');
-	$('#chat-history').prepend(item).hide().fadeIn(500);
-	});
+	// 退室イベントの発生
+	// 退室イベントのキャッチ
 
 	// チャットイベントをキャッチ
-	channel.bind('test_event', function(e) {
+	channel.bind('chat_event', function(e) {
 		var data = $.parseJSON(e);
 		var item = $('<li/>').append(
 			$('<div/>').append(
@@ -75,8 +75,8 @@
 		if (event.keyCode === 13 && textbox.value.length > 0) {
 			$.ajax({
 				type: 'POST',
-				url: './send_chat_message',
-				data: 'chat_message=' + textbox.value
+				url: './ws_chat_event',
+				data: 'type=chat_event&chat_message=' + textbox.value
 			});
 			textbox.value = '';
 		}
