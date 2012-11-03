@@ -1,4 +1,15 @@
-<input id="new_fusen" class="btn" type="button" value="付箋を追加する">
+<div id="user_list" class="row-fluid">
+    <?php echo $this->element('project_timer'); ?>
+</div>
+
+
+<div id="poker_area">
+    <span class="poker_close bClose">
+        <span>X</span>
+    </span>
+    <div class="content"></div>
+</div>
+
 
 <?php for ($i = 1; $i < 5; $i++): ?>
     <div class="line ui-state-default">

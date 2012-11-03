@@ -24,22 +24,6 @@
 </div>
 
 
-<div id="user_list" class="row-fluid">
-    <div class="action span6">
-        <?php echo $this->Html->link("次のステップへ", "#", array('id' => 'next_step', 'class' => 'btn')); ?>
-        <?php echo $this->Html->link("はじめから", "#", array('id' => 'restart', 'class' => 'btn')); ?>
-        <?php echo $this->Html->link("ラインを追加する", "#", array('id' => 'new_line', 'class' => 'btn')); ?>
-        <div id="poker_area">
-            <span class="poker_close bClose">
-                <span>X</span>
-            </span>
-            <div class="content"></div>
-        </div>
-    </div>
-    <div class="timer span6">
-        <?php echo $this->element('project_timer'); ?>
-    </div>
-</div>
 <script type="text/javascript">
     // Enable pusher logging - don't include this in production
     Pusher.log = function(message) {
