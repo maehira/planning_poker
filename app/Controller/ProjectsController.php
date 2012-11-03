@@ -110,12 +110,14 @@ class ProjectsController extends AppController {
     
 
     public function push_new_line($number){
-        $username = AuthComponent::user('username');
+        $userid = AuthComponent::user('id');
         $conf = Configure::read("Pusher");
         $pusher = new Pusher($conf["key"], $conf["secret"], $conf["app_id"]);
-        $pusher->trigger('private-channel', 'newline',$number);
+        $pusher->trigger('private-channel', 'newline',array(
+                            'linenumber'=>$number,
+                            'userid'=>$userid));
         return new CakeResponse(array("body" => ""));
-        
+
     }
 
 

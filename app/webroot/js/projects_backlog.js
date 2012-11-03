@@ -35,14 +35,32 @@ $(function() {
     $('#new_line').click(function() {
         var rows = $('#backlog .priority');
         var priority = parseInt($($('.priority')[rows.length - 1]).text(), 10) + 1;
-        $('#backlog').append('<li class="line ui-state-default">' +
-                              '<span class="priority">' + priority +
-                              '</span>' +
-                              '</li>'
-                             );
+        appendBacklogField(priority);
         $.get("/projects/push_new_line/"+priority);
     });
 })
+function appendBacklogField(priority){
+    if(priority == undefined){
+        var rows = $('#backlog .priority');
+        var priority = parseInt($($('.priority')[rows.length - 1]).text(), 10) + 1;
+    }
+    var htmltemplate = '<div class="line ui-state-default">' +
+    '<div class="priority\">' + priority + '</div>' +
+    '<div class="backlog_contents">'+
+    '<input type="text" class="title" />'+
+    '<a href="#" onclick="toggle_backlog_contents(contents_'+priority+', this); return false;">Close</a>'+
+    '<div id="contents_' + priority + '" class="scrollarea">'+
+    '<div class="items"></div>'+
+    '</div>'+
+    '</div>'+
+    '</div>';
+    $('#backlog').append(htmltemplate);    
+}
+
+
+
+
+
 
 /**
  * バックログ内に付箋を追加（テスト段階）

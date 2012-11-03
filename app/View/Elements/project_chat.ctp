@@ -25,12 +25,9 @@
       $("#chat-messages").append(data);
     });
     channel.bind('newline', function(data) {
-        var rows = $('#backlog .priority');
-        var priority = parseInt($($('.priority')[rows.length - 1]).text(), 10) + 1;
-        $('#backlog').append('<li class="line ui-state-default">' +
-                              '<span class="priority">' + priority +
-                              '</span>' +
-                              '</li>'
-                             );
+        if(data.userid != <?php echo AuthComponent::user('id');?>){
+            console.log(data);
+            appendBacklogField(data.linenumber);            
+        }
     });
 </script>
