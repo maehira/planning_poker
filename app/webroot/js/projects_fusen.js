@@ -7,7 +7,12 @@ $(function() {
     });
 })
 
-function make() {
+function make(add_area_id) {
+    if(typeof(add_area_id) == 'undefined'){
+        
+    } else {
+        
+    }
     var fusen = $('<div id="stickies1_' + fusen_number + '" class="fusen fusen_free" style="top: 80px; left: 850px;">' +
         '<div class="stittl" style="background-color: rgb(221, 238, 221);">maehira' +
         '<div class="sticlose">×</div></div>' +

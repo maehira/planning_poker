@@ -96,19 +96,12 @@ class ProjectsController extends AppController {
         }
     }
     
-//    private function connect() {
-//        $this->set("pusher_key", Configure::read("Pusher.key"));
-//    }
 
-    private function notice_member($chat_message) {
-        $username = AuthComponent::user('username');
-        $conf = Configure::read("Pusher");
-        $pusher = new Pusher($conf["key"], $conf["secret"], $conf["app_id"]);
-        $pusher->trigger('private-channel', 'test_event', "<p>$username : $chat_message</p>");
-        //printf("trigger called.");
-    }
-    
-
+    /**
+     * バックログラインを１行追加(メンバに通知)
+     * @param type $number
+     * @return \CakeResponse 
+     */
     public function push_new_line($number){
         $userid = AuthComponent::user('id');
         $conf = Configure::read("Pusher");
@@ -119,6 +112,30 @@ class ProjectsController extends AppController {
         return new CakeResponse(array("body" => ""));
 
     }
+    
+    /**
+     * 付箋を追加(メンバに通知)
+     */
+    public function fix_fusen() {
+        $userid = AuthComponent::user('id');
+        $conf = Configure::read("Pusher");
+        $pusher = new Pusher($conf["key"], $conf["secret"], $conf["app_id"]);
+        $pusher->trigger('private-channel', 'fix_fusen',array(
+                            'add_area_id'=>$add_area_id,
+                            'userid'=>$userid));
+        return new CakeResponse(array("body" => ""));
+    }
 
+    //    private function connect() {
+//        $this->set("pusher_key", Configure::read("Pusher.key"));
+//    }
+
+    private function notice_member($chat_message) {
+        $username = AuthComponent::user('username');
+        $conf = Configure::read("Pusher");
+        $pusher = new Pusher($conf["key"], $conf["secret"], $conf["app_id"]);
+        $pusher->trigger('private-channel', 'test_event', "<p>$username : $chat_message</p>");
+        //printf("trigger called.");
+    }
 
 }

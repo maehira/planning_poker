@@ -99,25 +99,6 @@ function set_fusen_in_line(stID, ww, wh, co, bc, lc, zi, tc){
 /**
  * バックログのドロッパブルの設定
  */
-function set_backlogwrapper_droppable() {
-//    $('.backlog_contents').droppable({
-//        accept: '.fusen',
-//        over: function(ev, ui){
-//            var scrollarea = $(this).children(".scrollarea");
-//            scrollarea.show();
-//            var add_area_id = scrollarea.attr("id");
-//            $("#" + add_area_id + " .items").prepend($(
-//                "<div id='candidate_area' class='candidate_area'><div>"
-//            ));
-//        },
-//        out: function(ev, ui){
-//            var scrollarea = $(this).children(".scrollarea");
-//            scrollarea.hide();
-//            var add_area_id = scrollarea.attr("id");
-//            $("#" + add_area_id + " .items #candidate_area").remove();
-//        }
-//    })
-}
 function set_backlog_droppable() {
     $('#backlog .line .scrollarea').droppable({
         accept: '.fusen',
@@ -145,8 +126,22 @@ function set_backlog_droppable() {
                 });
                 $(this).appendTo('body');
             }).appendTo($("#" + add_area_id + " .items"));
+            $.ajax({
+                type: 'POST',
+                url: './fix_fusen',
+                data: 'add_area_id=' + add_area_id,
+                success: function(data){
+                    //$("#chat-messages").append(data);
+                }
+            });
         }
     });
 }
-set_backlogwrapper_droppable();
 set_backlog_droppable();
+
+/**
+ * 他ユーザが追加した付箋を反映
+ */
+function fix_fusen_from_other(add_area_id) {
+    make(add_area_id);
+}
