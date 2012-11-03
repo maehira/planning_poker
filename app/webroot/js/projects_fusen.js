@@ -8,10 +8,6 @@ $(function() {
 })
 
 function make() {
-//    var sticky = $('<div draggable="true" ondragstart="f_dragstart(event)" ondrag="f_drag(event, this)" id="stickies1_' + fusen_number + '"><div class="stittl">' +
-//                   'maehira<div class="sticlose">×</div></div>' +
-//                   '<textarea class="stimain" id="" name="1000"></textarea></div>'
-//                 );
     var fusen = $('<div id="stickies1_' + fusen_number + '" class="fusen fusen_free" style="top: 80px; left: 850px;">' +
         '<div class="stittl" style="background-color: rgb(221, 238, 221);">maehira' +
         '<div class="sticlose">×</div></div>' +
