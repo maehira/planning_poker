@@ -11,6 +11,7 @@
 </div>
 
 
+<div class="row-fluid">
 <?php for ($i = 1; $i < 5; $i++): ?>
     <div class="line ui-state-default">
         <div class="priority"><?php echo $i ?></div>
@@ -23,5 +24,6 @@
         </div>
     </div>
 <?php endfor ?>
+</div>
 
 <div style="height: 900px"></div>
