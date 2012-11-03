@@ -76,3 +76,27 @@ function set_fusen_in_line(stID, ww, wh, co, bc, lc, zi, tc){
         $(stID).fadeOut('slow');
     });
 }
+
+/**
+ * バックログのドロッパブルの設定
+ */
+function set_backlog_droppable() {
+    $('#backlog .line').droppable({
+        accept: '.fusen',
+        tolerance: 'intersect',
+        hoverClass: "backloghover",
+        activate: function(ev, ui){
+        //var pos = ui.position;
+        },
+        drop: function(ev, ui){
+            alert(200)
+        //                $(this).empty();
+        //                $(this).append(ui.helper.clone().removeClass().addClass('dragparts_drop').css({top:'0',left:'0'}));
+        //                dragPartsAfter();
+        }
+    });
+}
+set_backlog_droppable();
+
+        
+        
