@@ -1,27 +1,35 @@
 <div id="user_list" class="row-fluid">
 	<ul class="thumbnails">
 		<li class="span2">
-			<?php echo $this->Html->link($this->Html->image('user/user1.png'), '#', array('class' => 'thumbnail', 'escape' => false)); ?>
+			<?php echo $this->Html->link($this->Html->image('user/user1.png'), '#', array('class' => 'thumbnail', 'rel' => 'tooltip', 'data-original-title' => 'mawatari', 'escape' => false)); ?>
 			<div id="select_card_zone1"></div>
 		</li>
 		<li class="span2">
-			<?php echo $this->Html->link($this->Html->image('user/user2.png'), '#', array('class' => 'thumbnail', 'escape' => false)); ?>
+			<?php echo $this->Html->link($this->Html->image('user/user2.png'), '#', array('class' => 'thumbnail', 'rel' => 'tooltip', 'data-original-title' => 'oota', 'escape' => false)); ?>
 			<div id="select_card_zone2"></div>
 		</li>
 		<li class="span2">
-			<?php echo $this->Html->link($this->Html->image('user/user3.png'), '#', array('class' => 'thumbnail', 'escape' => false)); ?>
+			<?php echo $this->Html->link($this->Html->image('user/user3.png'), '#', array('class' => 'thumbnail', 'rel' => 'tooltip', 'data-original-title' => 'maehira', 'escape' => false)); ?>
 			<div id="select_card_zone3"></div>
 		</li>
 		<li class="span2">
-			<?php echo $this->Html->link($this->Html->image('user/user4.png'), '#', array('class' => 'thumbnail', 'escape' => false)); ?>
+			<?php echo $this->Html->link($this->Html->image('user/user4.png'), '#', array('class' => 'thumbnail', 'rel' => 'tooltip', 'data-original-title' => 'seike', 'escape' => false)); ?>
 			<div id="select_card_zone4"></div>
 		</li>
 		<li class="span2">
-			<?php echo $this->Html->link($this->Html->image('user/user5.png'), '#', array('class' => 'thumbnail', 'escape' => false)); ?>
+			<?php echo $this->Html->link($this->Html->image('user/user5.png'), '#', array('class' => 'thumbnail', 'rel' => 'tooltip', 'data-original-title' => 'iPad欲しい', 'escape' => false)); ?>
 			<div id="select_card_zone5"></div>
 		</li>
 	</ul>
 </div>
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="http://twitter.github.com/bootstrap/assets/js/bootstrap.js"></script>
+<script>
+	$(function(){
+		$('a[rel=tooltip]').tooltip({'placement': 'top'});
+	});
+</script>
 
 
 <script type="text/javascript">

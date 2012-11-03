@@ -2,7 +2,7 @@
 	<?php echo $this->Html->image('/img/loading.gif', array('id' => 'chat-loading')); ?>
 	<div class="input-prepend" id="chat-input">
 		<span class="add-on" id="user-name"><i class="icon-user"></i></span>
-		<input type="text" id="textbox" placeholder="チャットしよう">
+		<input type="text" id="textbox" class="span9" placeholder="チャットしよう">
 	</div>
 </div>
 <ul id="chat-history" class="unstyled row-fluid"></ul>
@@ -104,7 +104,7 @@
                 break
             case "2":
                 break
-                
+
         }
     });
 </script>
