@@ -128,15 +128,21 @@ function fix_fusen_from_other(add_area_id) {
 }
 
 /**
- * 見積りリストボックスを表示
+ * 見積りリストボックスをセット
  */
 function set_estimation() {
-    $("#backlog .backlog_contents").append($("<div>aaaa</div>"));
+    
 }
 
-//            <?php if ($i == 1) : ?>
-//<!--                <button id="start_poker" class="btn">ポーカー開始</button>-->
-//            <?php endif ?>
+/**
+ * ポーカー開始ボタンのセット
+ */
+function set_poker(priority) {
+    $("#backlog #contents_"+priority).before($(
+    '<button id="start_poker" class="btn" style="float: right;">ポーカー開始</button>'));
+}
+
+
 //            <?php
 //            echo $this->Form->input('', array(
 //                'label' => false,

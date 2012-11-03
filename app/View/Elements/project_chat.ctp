@@ -103,6 +103,7 @@
                 set_estimation();
                 break
             case "2":
+                set_poker("1");
                 break
                 
         }

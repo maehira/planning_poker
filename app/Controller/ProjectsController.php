@@ -57,7 +57,7 @@ class ProjectsController extends AppController {
                 break;
             case 2:
                 $pusher->trigger('private-channel', 'next_step', array(
-                    'step' => "1"));
+                    'step' => "2"));
                 break;
         }
     }
