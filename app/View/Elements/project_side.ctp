@@ -3,23 +3,23 @@
 		<ul class="thumbnails">
 			<li class="span2">
 				<?php echo $this->Html->link($this->Html->image('user/user1.png'), '#', array('class' => 'thumbnail', 'rel' => 'tooltip', 'data-original-title' => 'mawatari', 'escape' => false)); ?>
-				<div id="select_card_zone1"></div>
+				<div id="select_card_zone_mawatari"></div>
 			</li>
 			<li class="span2">
 				<?php echo $this->Html->link($this->Html->image('user/user2.png'), '#', array('class' => 'thumbnail', 'rel' => 'tooltip', 'data-original-title' => 'oota', 'escape' => false)); ?>
-				<div id="select_card_zone2"></div>
+				<div id="select_card_zone_oota"></div>
 			</li>
 			<li class="span2">
 				<?php echo $this->Html->link($this->Html->image('user/user3.png'), '#', array('class' => 'thumbnail', 'rel' => 'tooltip', 'data-original-title' => 'maehira', 'escape' => false)); ?>
-				<div id="select_card_zone3"></div>
+				<div id="select_card_zone_maehira"></div>
 			</li>
 			<li class="span2">
 				<?php echo $this->Html->link($this->Html->image('user/user4.png'), '#', array('class' => 'thumbnail', 'rel' => 'tooltip', 'data-original-title' => 'seike', 'escape' => false)); ?>
-				<div id="select_card_zone4"></div>
+				<div id="select_card_zone_seike"></div>
 			</li>
 			<li class="span2">
 				<?php echo $this->Html->link($this->Html->image('user/user5.png'), '#', array('class' => 'thumbnail', 'rel' => 'tooltip', 'data-original-title' => 'iPad欲しい', 'escape' => false)); ?>
-				<div id="select_card_zone5"></div>
+				<div id="select_card_zone_iPad"></div>
 			</li>
 		</ul>
 	</div>
@@ -42,6 +42,7 @@
 <script>
 	$(function(){
 		$('a[rel=tooltip]').tooltip({'placement': 'top'});
+		$('a[rel=popover]').popover();
 	});
 
 	var nav = $('#side-menu'),
@@ -73,15 +74,26 @@
     var pusher = new Pusher("<?php echo($pusher_key) ?>"); // ←API取得時に控えたAPI keyを書く。
     var channel = pusher.subscribe('private-channel');
 
-    channel.bind('send_cardimg_ch', function(data) {
-      $("#select_card_zone1").append(data);
+    channel.bind('send_cardimg_ch_mawatari', function(data) {
+      $("#select_card_zone_mawatari").append(data);
     });
-    channel.bind('send_cardimg_ch_other', function(data) {
-      $("#select_card_zone2").append(data);
-      $("#select_card_zone3").append(data);
-      $("#select_card_zone4").append(data);
-      $("#select_card_zone5").append(data);
+
+    channel.bind('send_cardimg_ch_oota', function(data) {
+      $("#select_card_zone_oota").append(data);
     });
+
+    channel.bind('send_cardimg_ch_maehira', function(data) {
+      $("#select_card_zone_maehira").append(data);
+    });
+
+    channel.bind('send_cardimg_ch_seike', function(data) {
+      $("#select_card_zone_seike").append(data);
+    });
+
+    channel.bind('send_cardimg_ch_iPad', function(data) {
+      $("#select_card_zone_iPad").append(data);
+    });
+
 </script>
 
 

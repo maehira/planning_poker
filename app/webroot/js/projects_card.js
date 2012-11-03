@@ -23,29 +23,19 @@ $('#_card13').click(function() {
 });
 
 function _jsSentData (jsNum) {
+	var username = $('#username').text();
+	username = username.replace('@', '')
 	if (confirm (jsNum + '番を選択します。宜しいでしょうか？') == true ) {
 
 		$.ajax({
 		    type: 'POST',
 		    url: './send_decided_card',
-		    data: 'decided_card=' + jsNum,
+		    data: 'decided_card=' + jsNum + '&user=' + username,
 		    success: function(data){
-			$("#select_card_zone1").append(data);
+			$("#select_card_zone_seike").append(data);
 		    }
 		});
 
-
-		$.ajax({
-		    type: 'POST',
-		    url: './send_decided_card',
-		    data: 'decided_card=none',
-		    success: function(data){
-			$("#select_card_zone2").append(data);
-			$("#select_card_zone3").append(data);
-			$("#select_card_zone4").append(data);
-			$("#select_card_zone5").append(data);
-		    }
-		});
 
 	}
 	$('#poker_area').remove();
