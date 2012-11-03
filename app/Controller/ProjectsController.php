@@ -153,7 +153,10 @@ class ProjectsController extends AppController {
         $conf = Configure::read("Pusher");
         $pusher = new Pusher($conf["key"], $conf["secret"], $conf["app_id"]);
         $card = "/img/poker/$__decided_card.png";
-        $pusher->trigger('private-channel', 'send_cardimg_ch', '<img class="thumbnail" src=' . $card . '>');
+	if ($__decided_card != 'none') {
+		$pusher->trigger('private-channel', 'send_cardimg_ch', '<img class="thumbnail" src=' . $card . '>');
+	} else  {
+		$pusher->trigger('private-channel', 'send_cardimg_ch_other', '<img class="thumbnail" src=' . $card . '>');
+	}
     }
-
 }

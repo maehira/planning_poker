@@ -24,14 +24,29 @@ $('#_card13').click(function() {
 
 function _jsSentData (jsNum) {
 	if (confirm (jsNum + '番を選択します。宜しいでしょうか？') == true ) {
+
 		$.ajax({
 		    type: 'POST',
 		    url: './send_decided_card',
 		    data: 'decided_card=' + jsNum,
 		    success: function(data){
-			$("#__test_img").append(data);
+			$("#select_card_zone1").append(data);
 		    }
 		});
+
+
+		$.ajax({
+		    type: 'POST',
+		    url: './send_decided_card',
+		    data: 'decided_card=none',
+		    success: function(data){
+			$("#select_card_zone2").append(data);
+			$("#select_card_zone3").append(data);
+			$("#select_card_zone4").append(data);
+			$("#select_card_zone5").append(data);
+		    }
+		});
+
 	}
 	$('#poker_area').remove();
 }

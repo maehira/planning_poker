@@ -2,19 +2,23 @@
 	<ul class="thumbnails">
 		<li class="span2">
 			<?php echo $this->Html->link($this->Html->image('user/user1.png'), '#', array('class' => 'thumbnail', 'escape' => false)); ?>
-			<div id="__test_img"></div>
+			<div id="select_card_zone1"></div>
 		</li>
 		<li class="span2">
 			<?php echo $this->Html->link($this->Html->image('user/user2.png'), '#', array('class' => 'thumbnail', 'escape' => false)); ?>
+			<div id="select_card_zone2"></div>
 		</li>
 		<li class="span2">
 			<?php echo $this->Html->link($this->Html->image('user/user3.png'), '#', array('class' => 'thumbnail', 'escape' => false)); ?>
+			<div id="select_card_zone3"></div>
 		</li>
 		<li class="span2">
 			<?php echo $this->Html->link($this->Html->image('user/user4.png'), '#', array('class' => 'thumbnail', 'escape' => false)); ?>
+			<div id="select_card_zone4"></div>
 		</li>
 		<li class="span2">
 			<?php echo $this->Html->link($this->Html->image('user/user5.png'), '#', array('class' => 'thumbnail', 'escape' => false)); ?>
+			<div id="select_card_zone5"></div>
 		</li>
 	</ul>
 </div>
@@ -49,6 +53,12 @@
     var channel = pusher.subscribe('private-channel');
 
     channel.bind('send_cardimg_ch', function(data) {
-      $("#__test_img").append(data);
+      $("#select_card_zone1").append(data);
+    });
+    channel.bind('send_cardimg_ch_other', function(data) {
+      $("#select_card_zone2").append(data);
+      $("#select_card_zone3").append(data);
+      $("#select_card_zone4").append(data);
+      $("#select_card_zone5").append(data);
     });
 </script>
