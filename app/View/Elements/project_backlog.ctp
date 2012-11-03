@@ -1,3 +1,4 @@
+<input id="new_fusen" class="btn" type="button" value="付箋を追加する">
 
 <?php for ($i = 1; $i < 5; $i++): ?>
     <div class="line ui-state-default">
