@@ -7,6 +7,6 @@ $('#start_poker').bind('click', function(e) {
         contentContainer: '.content',
         loadUrl: 'poker',
         modalClose: false,
-        onClose: function() { alert('Close'); }
+        // onClose: function() { alert('Close'); }
     });
 });

@@ -40,6 +40,7 @@ $(function() {
                               '</span>' +
                               '</li>'
                              );
+        $.get("/projects/push_new_line/"+priority);
     });
 })
 

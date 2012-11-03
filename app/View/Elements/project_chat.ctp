@@ -24,4 +24,13 @@
     channel.bind('test_event', function(data) {
       $("#chat-messages").append(data);
     });
+    channel.bind('newline', function(data) {
+        var rows = $('#backlog .priority');
+        var priority = parseInt($($('.priority')[rows.length - 1]).text(), 10) + 1;
+        $('#backlog').append('<li class="line ui-state-default">' +
+                              '<span class="priority">' + priority +
+                              '</span>' +
+                              '</li>'
+                             );
+    });
 </script>

@@ -108,4 +108,15 @@ class ProjectsController extends AppController {
         //printf("trigger called.");
     }
     
+
+    public function push_new_line($number){
+        $username = AuthComponent::user('username');
+        $conf = Configure::read("Pusher");
+        $pusher = new Pusher($conf["key"], $conf["secret"], $conf["app_id"]);
+        $pusher->trigger('private-channel', 'newline',$number);
+        return new CakeResponse(array("body" => ""));
+        
+    }
+
+
 }
