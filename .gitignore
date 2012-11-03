@@ -2,6 +2,7 @@
 #app/tmp/*
 /nbproject/private/
 app/Config/pusher.php
+app/Config/database.php
 nbproject/*
 nbproject/project.properties
 /nbproject/private/
@@ -41,9 +42,6 @@ app/tmp/cache/sessions/*
 app/tmp/cache/tests/*
 !app/tmp/cache/tests/
 !app/tmp/cache/tests/empty
-
-
-app/Config/database.php
 
 
 !empty
