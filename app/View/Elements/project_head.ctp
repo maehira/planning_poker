@@ -20,7 +20,7 @@
 
 
 <div id="user_list" class="row-fluid">
-	<div class="action span8">
+	<div class="action span6">
 		<?php echo $this->Html->link("ラインを追加する", "#", array('id' => 'new_line', 'class' => 'btn')); ?>
 		<?php echo $this->Html->link("テスト用付箋を枠内に追加", "#", array('id' => 'add_test', 'class' => 'btn')); ?>
 	    <div id="poker_area">
@@ -30,7 +30,7 @@
 	        <div class="content"></div>
 	    </div>
 	</div>
-	<div class="timer span4">
+	<div class="timer span6">
 	    <?php echo $this->element('project_timer'); ?>
 	</div>
 </div>

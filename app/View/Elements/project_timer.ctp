@@ -1,8 +1,15 @@
-
-<h1>
+<div class="span8">
+    <div class="progress progress-striped active progress-success">
+        <div id="timer-progress" class="bar" style="width: 100%"></div>
+    </div>
+</div>
+<div class="span4">
     <span id="min">1</span>min
     <span id="sec">30</span>sec
-</h1>
+</div>
+
+
+
 
 
 <script type="text/javascript">
@@ -15,6 +22,11 @@
     function CountDown() {
         var min = $("#min").html();
         var sec = $("#sec").html();
+
+		var width = $('#timer-progress').width();
+		var parentWidth = $('#timer-progress').parent().width();
+		var percent = 100*width/parentWidth -1;
+		$("#timer-progress").css('width', percent+'%');
 
         min = parseInt(min);
         sec = parseInt(sec);
