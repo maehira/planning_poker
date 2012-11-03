@@ -119,11 +119,12 @@ function set_backlog_droppable() {
         drop: function(ev, ui){
             var add_area_id = $(this).attr("id");
             $("#" + add_area_id + " .items #candidate_area").remove();
-            ui.draggable.removeClass().addClass('fusen_fix').mousedown(function(e){
-                alert(this.pageY)
-                $(this).removeClass().addClass('fusen_free').css({
-                    top: $(this).pageY, left: $(this).pageX, position: "absolute"
+            ui.draggable.removeClass().addClass('fusen fusen_fix').mousedown(function(e){
+                var offset = $(this).offset()
+                $(this).removeClass().addClass('fusen fusen_free').css({
+                    top: offset.top, left: offset.left
                 });
+                $(this).appendTo('body');
             }).appendTo($("#" + add_area_id + " .items"));
         }
     });
