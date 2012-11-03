@@ -3,11 +3,11 @@
 require('../Lib/Pusher.php');
 
 class ProjectsController extends AppController {
-    
+
     // プロジェクト一覧
     public function index() {
     }
-    
+
     // プロジェクト作成
     public function add() {
         if(!empty($this->data)) {
@@ -16,34 +16,34 @@ class ProjectsController extends AppController {
             $this->redirect('index');
         }
     }
-    
+
     // メンバ編集
     public function member() {
-        
+
     }
-    
+
     public function start_x() {
         $this->set("pusher_key", Configure::read("Pusher.key"));
     }
-    
+
     public function poker() {
         $this->autoRender = false;
         $this->render("poker");
 //        return new CakeResponse(array("body" => ""));
     }
-    
+
     // バックログ作成、ベース見積り、プランニングポーカー
     public function start() {
         $this->set("pusher_key", Configure::read("Pusher.key"));
-        
+
         $options = array('conditions' => array('Project.id' => 1));
         $project = $this->Project->find('first', $options);
-        
+
         $step = null;
         if(!empty($this->data)) {
             $step = $this->data['step'];
         }
-        
+
         switch($step) {
             case null:
                 $step = $project['Project']['step'];
@@ -59,8 +59,8 @@ class ProjectsController extends AppController {
                 $this->Project->saveField('step', $step);
                 break;
         }
-        
-        
+
+
         switch ($step) {
             case 0:
                 $this->render('start');
@@ -74,16 +74,16 @@ class ProjectsController extends AppController {
                 $this->render('start3');
                 break;
         }
-        
+
     }
-    
+
     public function send_chat_message() {
         $chat_message = $_POST['chat_message'];
         $this->notice_member($chat_message);
         return new CakeResponse(array("body" => ""));
         //return new CakeResponse(array("body" => "<p>$chat_message</p>"));
     }
-    
+
     public function pusher_auth() {
         $this->autoRender = false;
         if ($this->Auth->loggedIn()) {
@@ -95,7 +95,7 @@ class ProjectsController extends AppController {
             echo "Forbidden";
         }
     }
-    
+
 //    private function connect() {
 //        $this->set("pusher_key", Configure::read("Pusher.key"));
 //    }
@@ -104,8 +104,9 @@ class ProjectsController extends AppController {
         $username = AuthComponent::user('username');
         $conf = Configure::read("Pusher");
         $pusher = new Pusher($conf["key"], $conf["secret"], $conf["app_id"]);
-        $pusher->trigger('private-channel', 'test_event', "<p>$username : $chat_message</p>");
-        //printf("trigger called.");
+		$data = json_encode(array('username' => ' @'.$username, 'text' => $chat_message));
+		$pusher->trigger('private-channel', 'test_event', $data);
+		//printf("trigger called.");
     }
-    
+
 }

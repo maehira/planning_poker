@@ -18,4 +18,3 @@
 
 <?php echo $this->Html->script('projects_poker'); ?>
 <?php echo $this->Html->script('projects_backlog'); ?>
-<?php echo $this->Html->script('projects_chat'); ?>
