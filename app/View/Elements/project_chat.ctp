@@ -1,5 +1,6 @@
 <div id="chat-area">
-	<div class="input-prepend">
+	<?php echo $this->Html->image('/img/loading.gif', array('id' => 'chat-loading')); ?>
+	<div class="input-prepend" id="chat-input">
 		<span class="add-on" id="user-name"><i class="icon-user"></i></span>
 		<input type="text" id="textbox" placeholder="チャットしよう">
 	</div>
@@ -28,6 +29,7 @@
 
 
 
+	$('#chat-input').hide();
 	var username = $('#username').text();
 
 	// 入室イベントの発生
@@ -37,10 +39,12 @@
 			url: './ws_chat_event',
 			data: 'type=join_event'
 		});
+		$('#user-name').append(username);
 	});
 	// 入室イベントのキャッチ
 	channel.bind('join_event', function(e) {
-		$('#user-name').append(username);
+		$('#chat-loading').hide();
+		$('#chat-input').fadeIn(500);
 		$('#textbox').focus();
 		var data = $.parseJSON(e);
 		var item = $('<li/>').append(
