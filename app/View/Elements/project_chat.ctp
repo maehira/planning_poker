@@ -100,7 +100,7 @@
     channel.bind('next_step', function(data) {
         switch(data.step) {
             case "1":
-                alert(12345)
+                set_estimation();
                 break
             case "2":
                 break

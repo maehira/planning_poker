@@ -126,3 +126,26 @@ set_backlog_droppable();
 function fix_fusen_from_other(add_area_id) {
     make(add_area_id);
 }
+
+/**
+ * 見積りリストボックスを表示
+ */
+function set_estimation() {
+    $("#backlog .backlog_contents").append($("<div>aaaa</div>"));
+}
+
+//            <?php if ($i == 1) : ?>
+//<!--                <button id="start_poker" class="btn">ポーカー開始</button>-->
+//            <?php endif ?>
+//            <?php
+//            echo $this->Form->input('', array(
+//                'label' => false,
+//                'div' => false,
+//                'type' => 'select',
+//                'options' => array(
+//                    "1" => "1", "2" => "2", "3" => "3", "5" => "5", "8" => "8", "13" => "13"),
+//                'selected' => "",
+//                'empty'=>array(0=>'--'),
+//                'style' => "width: 50px;"
+//            ));
+//            ?>
