@@ -12,7 +12,7 @@ function make() {
 //                   'maehira<div class="sticlose">×</div></div>' +
 //                   '<textarea class="stimain" id="" name="1000"></textarea></div>'
 //                 );
-    var fusen = $('<div id="stickies1_' + fusen_number + '" class="fusen fusen_free" >' +
+    var fusen = $('<div id="stickies1_' + fusen_number + '" class="fusen fusen_free" style="top: 80px; left: 850px;">' +
         '<div class="stittl" style="background-color: rgb(221, 238, 221);">maehira' +
         '<div class="sticlose">×</div></div>' +
         '<textarea id="" class="stimain" name="1000"></textarea>' +
