@@ -80,6 +80,25 @@ function set_fusen_in_line(stID, ww, wh, co, bc, lc, zi, tc){
 /**
  * バックログのドロッパブルの設定
  */
+function set_backlogwrapper_droppable() {
+//    $('.backlog_contents').droppable({
+//        accept: '.fusen',
+//        over: function(ev, ui){
+//            var scrollarea = $(this).children(".scrollarea");
+//            scrollarea.show();
+//            var add_area_id = scrollarea.attr("id");
+//            $("#" + add_area_id + " .items").prepend($(
+//                "<div id='candidate_area' class='candidate_area'><div>"
+//            ));
+//        },
+//        out: function(ev, ui){
+//            var scrollarea = $(this).children(".scrollarea");
+//            scrollarea.hide();
+//            var add_area_id = scrollarea.attr("id");
+//            $("#" + add_area_id + " .items #candidate_area").remove();
+//        }
+//    })
+}
 function set_backlog_droppable() {
     $('#backlog .line .scrollarea').droppable({
         accept: '.fusen',
@@ -98,13 +117,14 @@ function set_backlog_droppable() {
             $("#" + add_area_id + " .items #candidate_area").remove();
         },
         drop: function(ev, ui){
-            alert($(this).attr("id"));
-        //                $(this).empty();
-        //                $(this).append(ui.helper.clone().removeClass().addClass('dragparts_drop').css({top:'0',left:'0'}));
-        //                dragPartsAfter();
+            var add_area_id = $(this).attr("id");
+            $("#" + add_area_id + " .items #candidate_area").remove();
+            //$("#" + add_area_id + " .items").append($("<div>aaaa</div>"));
+            ui.draggable.removeClass().addClass('fusen_fix').appendTo($("#" + add_area_id + " .items"));
         }
     });
 }
+set_backlogwrapper_droppable();
 set_backlog_droppable();
 
         
