@@ -138,13 +138,14 @@ function set_backlog_droppable() {
         drop: function(ev, ui){
             var add_area_id = $(this).attr("id");
             $("#" + add_area_id + " .items #candidate_area").remove();
-            //$("#" + add_area_id + " .items").append($("<div>aaaa</div>"));
-            ui.draggable.removeClass().addClass('fusen_fix').appendTo($("#" + add_area_id + " .items"));
+            ui.draggable.removeClass().addClass('fusen_fix').mousedown(function(e){
+                alert(this.pageY)
+                $(this).removeClass().addClass('fusen_free').css({
+                    top: $(this).pageY, left: $(this).pageX, position: "absolute"
+                });
+            }).appendTo($("#" + add_area_id + " .items"));
         }
     });
 }
 set_backlogwrapper_droppable();
 set_backlog_droppable();
-
-        
-        
