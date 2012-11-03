@@ -39,23 +39,23 @@ function set_fusen(stID, wx, wy, ww, wh, co, bc, lc, zi, tc){
     $(stID + ' .stittl .sticlose').click(function(){
         $(stID).fadeOut('slow');
     });
-//    $(stID + ' .stittl').mousedown(function(e){
-//        var mx = e.pageX;
-//        var my = e.pageY;
-//        $(document).on('mousemove', function(e) {
-//            wx += e.pageX - mx;
-//            wy += e.pageY - my;
-//            $(stID).css({
-//                top: wy, 
-//                left: wx
-//            });
-//            mx = e.pageX;
-//            my = e.pageY;
-//            return false;
-//        }).one('mouseup', function(e){
-//            $(document).off('mousemove');
-//        });
-//        return false;
-//    });
+    $(stID + ' .stittl').mousedown(function(e){
+        var mx = e.pageX;
+        var my = e.pageY;
+        $(document).on('mousemove', function(e) {
+            wx += e.pageX - mx;
+            wy += e.pageY - my;
+            $(stID).css({
+                top: wy, 
+                left: wx
+            });
+            mx = e.pageX;
+            my = e.pageY;
+            return false;
+        }).one('mouseup', function(e){
+            $(document).off('mousemove');
+        });
+        return false;
+    });
 }
 

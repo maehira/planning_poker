@@ -1,61 +1,14 @@
-<script>
-/***** ドラッグ開始時の処理 *****/
-function f_dragstart(event){
-  event.dataTransfer.setData("drag_obj_id", event.target.id);
-  
-//        var mx = event.pageX;
-//        var my = event.pageY;
-//        $(document).on('mousemove', function() {
-//            alert(wx)
-//            wx += event.pageX - mx;
-//            wy += event.pageY - my;
-//            alert(wx)
-//            $("#"+event.currentTarget.id).css({
-//                top: wy, 
-//                left: wx
-//            });
-//            mx = event.pageX;
-//            my = event.pageY;
-//            return false;
-//        }).one('mouseup', function(){
-//            $(document).off('mousemove');
-//        });
-//        return false;
-}
+<div id="stickies1_1" class="fusen"
+     style="position: absolute; top: 80px; left: 850px; width: 200px; height: 75px; color: rgb(102, 102, 102);">
+    <div class="stittl" style="background-color: rgb(221, 238, 221);">
+        maehira
+        <div class="sticlose">×</div>
+    </div>
+    <textarea id="" class="stimain" name="1000"></textarea>
+</div>
 
-/* ドラッグが継続している間 */
-function f_drag(event, obj) {
-//    var offset = $("#"+obj.id).offset();
-//    var mx = offset.left;
-//    var my = offset.top;
-//    var wx = event.pageX - offset.left;
-//    var wy = event.pageY - offset.top;
-//    $("#"+obj.id).css({
-//      top: wy, 
-//      left: wx
-//    });
-    
-//    mx = e.pageX;
-//    my = e.pageY;
-}
 
-/***** ドラッグ要素がドロップ要素に重なっている間の処理 *****/
-function f_dragover(event){
-  //dragoverイベントをキャンセルして、ドロップ先の要素がドロップを受け付けるようにする
-  event.preventDefault();
-}
 
-/***** ドロップ時の処理 *****/
-function f_drop(event, drop_area_id){
-  var drag_obj = $("#"+event.dataTransfer.getData("drag_obj_id"));
-  $("#" + drop_area_id + " div").append(drag_obj);
-  //エラー回避のため、ドロップ処理の最後にdropイベントをキャンセルしておく
-  event.preventDefault();
-}
-</script>
-
-<!--<img src="../img/user/user1.png" id="apple" draggable="true" ondragstart="f_dragstart(event)" ondrag="f_drag(event, this)">
-<img src="../img/user/user2.png" id="orange" draggable="true" ondragstart="f_dragstart(event)">-->
 
 
 <div id="head">
@@ -74,3 +27,23 @@ function f_drop(event, drop_area_id){
 <?php echo $this->Html->script('projects_poker'); ?>
 <?php echo $this->Html->script('projects_backlog'); ?>
 <?php echo $this->Html->script('projects_chat'); ?>
+
+
+<script>
+$('#stickies1_1').draggable({});
+
+$('#backlog .line').droppable({
+            accept: '.fusen',
+            tolerance: 'intersect',
+            hoverClass: "backloghover",
+            activate: function(ev, ui){
+                //var pos = ui.position;
+            },
+            drop: function(ev, ui){
+                alert(200)
+//                $(this).empty();
+//                $(this).append(ui.helper.clone().removeClass().addClass('dragparts_drop').css({top:'0',left:'0'}));
+//                dragPartsAfter();
+            }
+        });
+</script>

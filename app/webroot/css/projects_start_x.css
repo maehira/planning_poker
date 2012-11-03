@@ -133,11 +133,14 @@ body {
 #backlog .scrollarea{
     overflow-x: auto;
     height: 100px;
-    -khtml-user-drag: element; /*webkit系ブラウザでドラッグ＆ドロップを動かすための指定 */
 }
 
 #backlog .items {
     width: 610px;
+}
+
+.backloghover {
+    height: 100px;
 }
 
 
