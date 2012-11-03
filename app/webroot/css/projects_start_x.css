@@ -27,6 +27,20 @@ body {
     height: 80%;
     resize: none;
 }
+.fusen_free {
+    position: absolute;
+    top: 80px;
+    left: 850px;
+    width: 200px;
+    height: 75px;
+    color: rgb(102, 102, 102);
+}
+.fusen_fix {
+    float: left;
+    width: 200px;
+    height: 75px;
+    color: rgb(102, 102, 102);
+}
 /*--------------------*/
 
 
