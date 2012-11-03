@@ -38,8 +38,9 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 
         <?php echo $this->Html->css('bootstrap.min'); ?>
         <?php echo $this->Html->css('bootstrap-responsive.min'); ?>
-        <?php echo $this->Html->script('bootstrap.min'); ?>
+        <?php echo $this->Html->css('style'); ?>
         <?php echo $this->Html->script('http://code.jquery.com/jquery-1.8.2.js'); ?>
+        <?php echo $this->Html->script('bootstrap.min'); ?>
         <?php echo $this->Html->script('http://code.jquery.com/ui/1.9.1/jquery-ui.js'); ?>
         <?php echo $this->Html->css('http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css'); ?>
         <?php echo $this->Html->css('default'); ?>
@@ -57,15 +58,9 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
         ?>
         </head>
 <body>
-	<div id="container">
-		<div id="header">
-                    <?php
-                      $username = AuthComponent::user('username');
-                      if(!empty($username)) {
-                       echo 'LoginUser : ' . $username;
-                      }
-                    ?>
-		</div>
+	<?php echo $this->element('navbar'); ?>
+
+	<div id="container" class="container">
 		<div id="content">
 			<?php echo $this->Session->flash(); ?>
 			<?php echo $this->fetch('content'); ?>

@@ -43,6 +43,7 @@ app/tmp/cache/tests/*
 !app/tmp/cache/tests/empty
 
 
+app/config/database.php
 
 
 !empty
