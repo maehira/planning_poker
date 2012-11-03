@@ -26,13 +26,13 @@ function _jsSentData (jsNum) {
 	if (confirm (jsNum + '番を選択します。宜しいでしょうか？') == true ) {
 		$.ajax({
 		    type: 'POST',
-		    url: './send_chat_message',
-		    data: 'chat_message=' + jsNum,
+		    url: './send_decided_card',
+		    data: 'decided_card=' + jsNum,
 		    success: function(data){
-			$("#chat-messages").append(data);
+			$("#__test_img").append(data);
 		    }
 		});
-		$('#poker_area').remove();
 	}
+	$('#poker_area').remove();
 }
 
