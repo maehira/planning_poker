@@ -1,6 +1,6 @@
 body {
     position: relative;
-    padding-top: 40px;
+    padding-top: 60px;
 }
 
 #message {
@@ -11,6 +11,9 @@ body {
     margin-bottom: 0;
 }
 
+#chat-area {
+    margin-bottom: 15px;
+}
 
 
 

@@ -82,9 +82,6 @@
 		}
 	};
 
-    channel.bind('test_event', function(data) {
-      $("#chat-messages").append(data);
-    });
     channel.bind('newline', function(data) {
         if(data.userid != <?php echo AuthComponent::user('id');?>){
             console.log(data);
