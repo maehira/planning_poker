@@ -32,7 +32,6 @@
 
 	// 入室イベントの発生
 	channel.bind('pusher:subscription_succeeded', function() {
-		$('#textbox').focus();
 		$.ajax({
 			type: 'POST',
 			url: './ws_chat_event',
@@ -42,6 +41,7 @@
 	// 入室イベントのキャッチ
 	channel.bind('join_event', function(e) {
 		$('#user-name').append(username);
+		$('#textbox').focus();
 		var data = $.parseJSON(e);
 		var item = $('<li/>').append(
 			$('<div/>').append(
@@ -89,8 +89,8 @@
         }
     });
     channel.bind('fix_fusen', function(data) {
-        if(data.userid != <?php echo AuthComponent::user('id');?>){
+//        if(data.userid != <?php echo AuthComponent::user('id');?>){
             fix_fusen_from_other(data.add_area_id);
-        }
+//        }
     });
 </script>
