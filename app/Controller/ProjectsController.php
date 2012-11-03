@@ -177,18 +177,14 @@ class ProjectsController extends AppController {
 
     public function send_decided_card() {
         $decided_card = $_POST['decided_card'];
-        $this->__send_card($decided_card);
+        $user = trim($_POST['user']);
+        $this->__send_card($decided_card,$user);
         return new CakeResponse(array("body" => ""));
     }
 
-    private function __send_card($__decided_card) {
+    private function __send_card($__decided_card,$__user) {
         $conf = Configure::read("Pusher");
         $pusher = new Pusher($conf["key"], $conf["secret"], $conf["app_id"]);
-        $card = "/img/poker/$__decided_card.png";
-	if ($__decided_card != 'none') {
-		$pusher->trigger('private-channel', 'send_cardimg_ch', '<img class="thumbnail" src=' . $card . '>');
-	} else  {
-		$pusher->trigger('private-channel', 'send_cardimg_ch_other', '<img class="thumbnail" src=' . $card . '>');
-	}
+	$pusher->trigger('private-channel', "send_cardimg_ch_$__user", "$__decided_card");
     }
 }

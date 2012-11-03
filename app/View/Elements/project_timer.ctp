@@ -26,6 +26,11 @@
 		var width = $('#timer-progress').width();
 		var parentWidth = $('#timer-progress').parent().width();
 		var percent = 100*width/parentWidth -1;
+		if (percent < 30) {
+			$("#timer-progress").parent().removeClass('progress-warning').addClass('progress-danger');
+		} else if (percent < 60) {
+			$("#timer-progress").parent().removeClass('progress-success').addClass('progress-warning');
+		}
 		$("#timer-progress").css('width', percent+'%');
 
         min = parseInt(min);

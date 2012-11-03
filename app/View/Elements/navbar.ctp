@@ -10,6 +10,10 @@
 				<div class="nav-collapse">
 					<ul class="nav">
 						<li><?php echo $this->Html->link("Home", array('controller' => 'projects', 'action' => 'start_x'), array('icon' => 'home')); ?></li>
+						<li><?php echo $this->Html->link("付箋を追加する", "#", array('id' => 'new_fusen', 'icon' => 'tag')); ?></li>
+						<li><?php echo $this->Html->link("ラインを追加する", "#", array('id' => 'new_line', 'icon' => 'list')); ?></li>
+						<li><?php echo $this->Html->link("次のステップへ", "#", array('id' => 'next_step', 'icon' => 'arrow-right')); ?></li>
+						<li><?php echo $this->Html->link("はじめから", "#", array('id' => 'restart', 'icon' => 'fast-backward')); ?></li>
 					</ul>
 				</div>
 			    <ul class="nav pull-right">
