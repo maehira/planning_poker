@@ -139,8 +139,11 @@ body {
     width: 610px;
 }
 
-.backloghover {
-    height: 100px;
+#backlog .candidate_area {
+    float: left;
+    width: 200px;
+    height: 80px;
+    border: dashed 1px #123;
 }
 
 

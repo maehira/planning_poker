@@ -81,15 +81,24 @@ function set_fusen_in_line(stID, ww, wh, co, bc, lc, zi, tc){
  * バックログのドロッパブルの設定
  */
 function set_backlog_droppable() {
-    $('#backlog .line').droppable({
+    $('#backlog .line .scrollarea').droppable({
         accept: '.fusen',
         tolerance: 'intersect',
-        hoverClass: "backloghover",
         activate: function(ev, ui){
         //var pos = ui.position;
         },
+        over: function(ev, ui){
+            var add_area_id = $(this).attr("id");
+            $("#" + add_area_id + " .items").prepend($(
+                "<div id='candidate_area' class='candidate_area'><div>"
+            ));
+        },
+        out: function(ev, ui){
+            var add_area_id = $(this).attr("id");
+            $("#" + add_area_id + " .items #candidate_area").remove();
+        },
         drop: function(ev, ui){
-            alert(200)
+            alert($(this).attr("id"));
         //                $(this).empty();
         //                $(this).append(ui.helper.clone().removeClass().addClass('dragparts_drop').css({top:'0',left:'0'}));
         //                dragPartsAfter();
