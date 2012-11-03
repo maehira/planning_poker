@@ -1,7 +1,8 @@
 <div id="chat-area">
-	<div class="input-prepend">
+	<?php echo $this->Html->image('/img/loading.gif', array('id' => 'chat-loading')); ?>
+	<div class="input-prepend" id="chat-input">
 		<span class="add-on" id="user-name"><i class="icon-user"></i></span>
-		<input type="text" id="textbox" placeholder="今なにしてる？">
+		<input type="text" id="textbox" placeholder="チャットしよう">
 	</div>
 </div>
 <ul id="chat-history" class="unstyled row-fluid"></ul>
@@ -28,36 +29,39 @@
 
 
 
+	$('#chat-input').hide();
 	var username = $('#username').text();
 
-	// チャット要素のベース作成
-
-	// 入室イベントをキャッチ
-	pusher.connection.bind('connected', function() {
-	var item = $('<li/>').append(
-		$('<div/>').append(
-		$('<i/>').addClass('icon-user'))
-	);
+	// 入室イベントの発生
+	channel.bind('pusher:subscription_succeeded', function() {
+		$.ajax({
+			type: 'POST',
+			url: './ws_chat_event',
+			data: 'type=join_event'
+		});
+		$('#user-name').append(username);
+	});
+	// 入室イベントのキャッチ
+	channel.bind('join_event', function(e) {
+		$('#chat-loading').hide();
+		$('#chat-input').fadeIn(500);
+		$('#textbox').focus();
+		var data = $.parseJSON(e);
+		var item = $('<li/>').append(
+			$('<div/>').append(
+			$('<i/>').addClass('icon-user'))
+		);
 		item.addClass('alert alert-info fade in')
 		.prepend('<button type="button" class="close" data-dismiss="alert">×</button>')
-		.children('div').children('i').after(username + 'が入室しました');
-	$('#chat-history').prepend(item).hide().fadeIn(500);
+		.children('div').children('i').after(data.username + 'が入室しました');
+		$('#chat-history').prepend(item).hide().fadeIn(500);
 	});
 
-	// 退室イベントをキャッチ
-	pusher.connection.bind('disconnected', function() {
-	var item = $('<li/>').append(
-		$('<div/>').append(
-		$('<i/>').addClass('icon-user'))
-	);
-		item.addClass('alert fade in')
-		.prepend('<button type="button" class="close" data-dismiss="alert">×</button>')
-		.children('div').children('i').after(username + 'が退室しました');
-	$('#chat-history').prepend(item).hide().fadeIn(500);
-	});
+	// 退室イベントの発生
+	// 退室イベントのキャッチ
 
 	// チャットイベントをキャッチ
-	channel.bind('test_event', function(e) {
+	channel.bind('chat_event', function(e) {
 		var data = $.parseJSON(e);
 		var item = $('<li/>').append(
 			$('<div/>').append(
@@ -75,8 +79,8 @@
 		if (event.keyCode === 13 && textbox.value.length > 0) {
 			$.ajax({
 				type: 'POST',
-				url: './send_chat_message',
-				data: 'chat_message=' + textbox.value
+				url: './ws_chat_event',
+				data: 'type=chat_event&chat_message=' + textbox.value
 			});
 			textbox.value = '';
 		}
@@ -89,9 +93,9 @@
         }
     });
     channel.bind('fix_fusen', function(data) {
-        if(data.userid != <?php echo AuthComponent::user('id');?>){
+//        if(data.userid != <?php echo AuthComponent::user('id');?>){
             fix_fusen_from_other(data.add_area_id);
-        }
+//        }
     });
     channel.bind('next_step', function(data) {
         switch(data.step) {
