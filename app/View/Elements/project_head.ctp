@@ -1,43 +1,45 @@
 <div id="user_list" class="row-fluid">
-	<ul class="thumbnails">
-		<li class="span2">
-			<?php echo $this->Html->link($this->Html->image('user/user1.png'), '#', array('class' => 'thumbnail', 'escape' => false)); ?>
-			<div id="__test_img"></div>
-		</li>
-		<li class="span2">
-			<?php echo $this->Html->link($this->Html->image('user/user2.png'), '#', array('class' => 'thumbnail', 'escape' => false)); ?>
-		</li>
-		<li class="span2">
-			<?php echo $this->Html->link($this->Html->image('user/user3.png'), '#', array('class' => 'thumbnail', 'escape' => false)); ?>
-		</li>
-		<li class="span2">
-			<?php echo $this->Html->link($this->Html->image('user/user4.png'), '#', array('class' => 'thumbnail', 'escape' => false)); ?>
-		</li>
-		<li class="span2">
-			<?php echo $this->Html->link($this->Html->image('user/user5.png'), '#', array('class' => 'thumbnail', 'escape' => false)); ?>
-		</li>
-	</ul>
+    <ul class="thumbnails">
+        <li class="span2">
+            <?php echo $this->Html->link($this->Html->image('user/user1.png'), '#', array('class' => 'thumbnail', 'escape' => false)); ?>
+            <div id="__test_img"></div>
+        </li>
+        <li class="span2">
+            <?php echo $this->Html->link($this->Html->image('user/user2.png'), '#', array('class' => 'thumbnail', 'escape' => false)); ?>
+        </li>
+        <li class="span2">
+            <?php echo $this->Html->link($this->Html->image('user/user3.png'), '#', array('class' => 'thumbnail', 'escape' => false)); ?>
+        </li>
+        <li class="span2">
+            <?php echo $this->Html->link($this->Html->image('user/user4.png'), '#', array('class' => 'thumbnail', 'escape' => false)); ?>
+        </li>
+        <li class="span2">
+            <?php echo $this->Html->link($this->Html->image('user/user5.png'), '#', array('class' => 'thumbnail', 'escape' => false)); ?>
+        </li>
+    </ul>
 </div>
 
 
 <div id="user_list" class="row-fluid">
-	<div class="action span6">
-		<?php echo $this->Html->link("ラインを追加する", "#", array('id' => 'new_line', 'class' => 'btn')); ?>
-	    <div id="poker_area">
-	        <span class="poker_close bClose">
-	            <span>X</span>
-	        </span>
-	        <div class="content"></div>
-	    </div>
-	</div>
-	<div class="timer span6">
-	    <?php echo $this->element('project_timer'); ?>
-	</div>
+    <div class="action span6">
+        <?php echo $this->Html->link("次のステップへ", "#", array('id' => 'next_step', 'class' => 'btn')); ?>
+        <?php echo $this->Html->link("はじめから", "#", array('id' => 'restart', 'class' => 'btn')); ?>
+        <?php echo $this->Html->link("ラインを追加する", "#", array('id' => 'new_line', 'class' => 'btn')); ?>
+        <div id="poker_area">
+            <span class="poker_close bClose">
+                <span>X</span>
+            </span>
+            <div class="content"></div>
+        </div>
+    </div>
+    <div class="timer span6">
+        <?php echo $this->element('project_timer'); ?>
+    </div>
 </div>
 <script type="text/javascript">
     // Enable pusher logging - don't include this in production
     Pusher.log = function(message) {
-      if (window.console && window.console.log) window.console.log(message);
+        if (window.console && window.console.log) window.console.log(message);
     };
 
     // Flash fallback logging - don't include this in production
@@ -49,6 +51,6 @@
     var channel = pusher.subscribe('private-channel');
 
     channel.bind('send_cardimg_ch', function(data) {
-      $("#__test_img").append(data);
+        $("#__test_img").append(data);
     });
 </script>

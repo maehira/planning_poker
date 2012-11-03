@@ -24,6 +24,42 @@ class ProjectsController extends AppController {
 
     public function start_x() {
         $this->set("pusher_key", Configure::read("Pusher.key"));
+        
+        if(empty($this->data)) {
+            return;
+        }
+        
+        $options = array('conditions' => array('Project.id' => 1));
+        $project = $this->Project->find('first', $options);
+
+        $step = $this->data['step'];
+        $conf = Configure::read("Pusher");
+        $pusher = new Pusher($conf["key"], $conf["secret"], $conf["app_id"]);
+        
+        switch($step) {
+            case 'next':
+                $step = $project['Project']['step'] + 1;
+                $this->Project->id = 1;
+                $this->Project->saveField('step', $step);
+                break;
+            case 'reset':
+                $step = 0;
+                $this->Project->id = 1;
+                $this->Project->saveField('step', $step);
+                break;
+        }
+        
+        switch ($step) {
+            case 1:
+                $pusher->trigger('private-channel', 'next_step', array(
+                    'step' => "1"));
+                return new CakeResponse(array("body" => ""));
+                break;
+            case 2:
+                $pusher->trigger('private-channel', 'next_step', array(
+                    'step' => "1"));
+                break;
+        }
     }
 
     public function poker() {

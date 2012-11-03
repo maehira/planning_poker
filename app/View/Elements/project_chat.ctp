@@ -93,4 +93,14 @@
             fix_fusen_from_other(data.add_area_id);
         }
     });
+    channel.bind('next_step', function(data) {
+        switch(data.step) {
+            case "1":
+                alert(12345)
+                break
+            case "2":
+                break
+                
+        }
+    });
 </script>
