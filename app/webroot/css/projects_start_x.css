@@ -29,35 +29,6 @@ body {
 }
 /*--------------------*/
 
-/* ヘッド
-================================================================================
-================================================================================
-*/
-
-#head #user_list div {
-    float: left;
-    margin-right: 10px;
-    width: 120px;
-}
-
-#head #user_list img {
-    width: 60px;
-    height: 60px;
-/*    filter: Alpha(opacity=50);  透明化　IE系 */
-/*    opacity: 0.5;  透明化　Mozzila系 */
-}
-
-#head .action {
-    float: left;
-}
-
-#head #poker_area {
-    left: 377.5px;
-    position: absolute;
-    top: 1267px;
-    z-index: 9999;
-    display: none;
-}
 
 /*---------ポーカーモーダルウィンドウ---------*/
 #poker_area {
@@ -85,11 +56,6 @@ body {
     text-decoration: none;
 }
 /*----------------------------------------*/
-
-#head .timer {
-    float: right;
-    margin-right: 50px;
-}
 
 /* バックログ
 ================================================================================
