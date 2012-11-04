@@ -1,19 +1,19 @@
 /* 
  * sortableのセット
  */
-function set_sortable(id) {
-    $('#' + id).sortable();
-//    $('#' + id).disableSelection();
-    $('#' + id).bind('sortstop', function (e, ui) {
+function set_sortable(target) {
+    $(target).sortable();
+//    $(target).disableSelection();
+    $(target).bind('sortstop', function (e, ui) {
         // ソートが完了したら実行される。
-        var rows = $('#' + id + ' .priority');
+        var rows = $(target + ' .priority');
         for (var i = 0, rowTotal = rows.length; i < rowTotal; i += 1) {
             $($('.priority')[i]).text(i + 1);
         }
     })
 }
 
-set_sortable('backlog');
+set_sortable('#backlog .row-fluid');
 
 
 /**

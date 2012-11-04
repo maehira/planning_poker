@@ -37,8 +37,8 @@
 
 
 
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<script src="http://twitter.github.com/bootstrap/assets/js/bootstrap.js"></script>
+<!--<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="http://twitter.github.com/bootstrap/assets/js/bootstrap.js"></script>-->
 <script>
 	$(function(){
 		$('a[rel=tooltip]').tooltip({'placement': 'top'});
