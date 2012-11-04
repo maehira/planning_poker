@@ -3,9 +3,12 @@
         <div id="timer-progress" class="bar" style="width: 100%"></div>
     </div>
 </div>
-<div class="span4">
+<div class="span2">
     <span id="min">1</span>min
     <span id="sec">30</span>sec
+</div>
+<div class="span2">
+	<a href="#" id="planning-start" class="btn btn-primary">Start</a>
 </div>
 
 
@@ -13,6 +16,11 @@
 
 
 <script type="text/javascript">
+	$('#planning-start').click(function(){
+	    Start();
+		return false;
+	});
+
     var Timer1;
 
     function Start() {
@@ -51,5 +59,4 @@
         }
     }
 
-    Start();
 </script>
