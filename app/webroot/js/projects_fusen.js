@@ -8,15 +8,18 @@ $(function() {
 })
 
 function make(add_area_id) {
+    var rand_key = Math.floor(Math.random() * 123456789);
+    var id = 'stickies1_' + fusen_number + '_' + rand_key;
+    
     if(typeof(add_area_id) == 'undefined'){
-        var fusen = $('<div id="stickies1_' + fusen_number + '" class="fusen fusen_free" style="top: 80px; left: 850px;">' +
+        var fusen = $('<div id=' + id + ' " class="fusen fusen_free" style="top: 80px; left: 850px;">' +
             '<div class="stittl" style="background-color: rgb(221, 238, 221);">maehira' +
             '<div class="sticlose">×</div></div>' +
             '<textarea id="" class="stimain" name="1000"></textarea>' +
             '</div>');
         fusen.appendTo('body');
     } else {
-        var fusen = $('<div id="stickies1_' + fusen_number + '" class="fusen fusen_fix">' +
+        var fusen = $('<div id=' + id + ' " class="fusen fusen_fix">' +
             '<div class="stittl" style="background-color: rgb(221, 238, 221);">maehira' +
             '<div class="sticlose">×</div></div>' +
             '<textarea id="" class="stimain" name="1000"></textarea>' +
@@ -24,9 +27,9 @@ function make(add_area_id) {
         fusen.appendTo("#"+add_area_id);
     }
     
-    $('#stickies1_' + fusen_number).draggable({});
-    var id = '#stickies1_' + fusen_number;
-    set_fusen(id ,850 , 80, 200, 75, '#666', '#fff', '1px solid #ccc', 12, '#ddeedd');
+    $('#'+id).draggable({});
+    
+    set_fusen('#'+id ,850 , 80, 200, 75, '#666', '#fff', '1px solid #ccc', 12, '#ddeedd');
   }
 
 
