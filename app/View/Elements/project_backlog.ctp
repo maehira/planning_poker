@@ -25,5 +25,3 @@
     </div>
 <?php endfor ?>
 </div>
-
-<div style="height: 900px"></div>
