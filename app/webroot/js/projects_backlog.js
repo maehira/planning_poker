@@ -131,7 +131,17 @@ function fix_fusen_from_other(add_area_id) {
  * 見積りリストボックスをセット
  */
 function set_estimation() {
-    
+    $("#backlog .backlog_contents input").after($(
+         '<select id="" style="width: 50px; height: 25px;" name="data[]">' +
+         '<option value="0">--</option>' +
+         '<option value="1">1</option>' +
+         '<option value="2">2</option>' +
+         '<option value="3">3</option>' +
+         '<option value="5">5</option>' +
+         '<option value="8">8</option>' +
+         '<option value="13">13</option>' +
+         '</select>'
+    ))
 }
 
 /**
@@ -143,15 +153,3 @@ function set_poker(priority) {
 }
 
 
-//            <?php
-//            echo $this->Form->input('', array(
-//                'label' => false,
-//                'div' => false,
-//                'type' => 'select',
-//                'options' => array(
-//                    "1" => "1", "2" => "2", "3" => "3", "5" => "5", "8" => "8", "13" => "13"),
-//                'selected' => "",
-//                'empty'=>array(0=>'--'),
-//                'style' => "width: 50px;"
-//            ));
-//            ?>
