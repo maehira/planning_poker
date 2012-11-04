@@ -1,5 +1,5 @@
 <div class="span8">
-    <div class="progress progress-striped active progress-success">
+    <div id="progress" class="progress progress-striped progress-success">
         <div id="timer-progress" class="bar" style="width: 100%"></div>
     </div>
 </div>
@@ -17,6 +17,16 @@
 
 <script type="text/javascript">
 	$('#planning-start').click(function(){
+		$('#progress').addClass('active');
+		var item = $('<li/>').append(
+			$('<div/>').append(
+			$('<i/>').addClass('icon-user'))
+		);
+		item.addClass('alert fade in')
+		.prepend('<button type="button" class="close" data-dismiss="alert">×</button>')
+		.children('div').children('i').after('開始されました！');
+		$('#chat-history').prepend(item).hide().fadeIn(1000);
+
 	    Start();
 		return false;
 	});
