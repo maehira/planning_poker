@@ -150,6 +150,18 @@ function set_estimation() {
 function set_poker(priority) {
     $("#backlog #contents_"+priority).before($(
     '<button id="start_poker" class="btn" style="float: right;">ポーカー開始</button>'));
+    
+    
+ 　　//ポーカー開始ボタンのクリック時のモーダルウィンドウ
+    $('#start_poker').bind('click', function(e) {
+        e.preventDefault();
+        $('#poker_area').bPopup({
+            contentContainer: '.content',
+            loadUrl: 'poker',
+            modalClose: false
+        // onClose: function() { alert('Close'); }
+        });
+    });
 }
 
 
